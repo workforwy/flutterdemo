@@ -3,20 +3,20 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class SimpleDialogDemo extends StatefulWidget {
   @override
-  _SimpleDialogDemoState createState() => new _SimpleDialogDemoState();
+  _SimpleDialogDemoState createState() => _SimpleDialogDemoState();
 }
 
 class _SimpleDialogDemoState extends State<SimpleDialogDemo> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
           'SimpleDialogDemo',
-          style: new TextStyle(fontSize: 17.0),
+          style: const TextStyle(fontSize: 17.0),
         ),
       ),
-      body: new ListView(
+      body: ListView(
         children: <Widget>[
           buildContents(context, 'SimpleDialog Demo1', 'SimpleDialog Demo1', 1),
           buildContents(context, 'SimpleDialog Demo2', 'SimpleDialog Demo2', 2),
@@ -30,9 +30,10 @@ class _SimpleDialogDemoState extends State<SimpleDialogDemo> {
 // 主体内容
 Widget buildContents(
     BuildContext context, String contents, String title, int type) {
-  return new InkWell(
+  return InkWell(
     // 给每一个item一个点击事件
-    child: _buildListItemContent(contents: contents,bgColor:(Colors.teal[300])!),
+    child:
+        _buildListItemContent(contents: contents, bgColor: (Colors.teal[300])!),
     onTap: () {
       print("onTap");
       _showToast('onTap');
@@ -44,27 +45,27 @@ Widget buildContents(
 
 // ListView的 Item布局内容
 Widget _buildListItemContent({var contents, required Color bgColor}) {
-  return new Container(
-    margin: new EdgeInsets.all(5.0),
-    padding: new EdgeInsets.all(5.0),
+  return Container(
+    margin: const EdgeInsets.all(5.0),
+    padding: const EdgeInsets.all(5.0),
     alignment: Alignment.center,
-    constraints: new BoxConstraints.expand(height: 40.0),
-    decoration: new BoxDecoration(
+    constraints: const BoxConstraints.expand(height: 40.0),
+    decoration: BoxDecoration(
       color: bgColor == null ? Colors.teal[300] : bgColor,
-      borderRadius: new BorderRadius.all(
+      borderRadius: const BorderRadius.all(
         //让矩形四个角都变成圆角
-        const Radius.circular(8.0),
+        Radius.circular(8.0),
       ),
       // 阴影
       boxShadow: <BoxShadow>[
-        new BoxShadow(
+        BoxShadow(
           color: (Colors.teal[100])!,
-          offset: new Offset(0.0, 5.0),
+          offset: const Offset(0.0, 5.0),
           blurRadius: 8.0,
         ),
-        new BoxShadow(
+        const BoxShadow(
           color: Colors.grey,
-          offset: new Offset(0.0, 6.0),
+          offset: Offset(0.0, 6.0),
           blurRadius: 8.0,
         ),
       ],
@@ -74,9 +75,9 @@ Widget _buildListItemContent({var contents, required Color bgColor}) {
 }
 
 Widget _buildButton(var contents) {
-  return new Text(
+  return Text(
     contents,
-    style: new TextStyle(
+    style: const TextStyle(
       color: Colors.white,
       fontSize: 16.0,
     ),
@@ -87,7 +88,7 @@ Widget _buildButton(var contents) {
 // 这个不能直接写，正确的使用方式：showDialog<Null>(builder: (BuildContext context) {});
 // 在builder里面去声明dialog对象
 void buildDialogs(BuildContext context, String title, int type) {
-  showDialog<Null>(
+  showDialog<void>(
     context: context,
     builder: (BuildContext context) {
       return showSimpleDialog(context, title, type);
@@ -98,13 +99,13 @@ void buildDialogs(BuildContext context, String title, int type) {
 // 创建 SimpleDialog
 // title是SimpleDialog的标题  type是dialog item创建不同的内容
 SimpleDialog showSimpleDialog(BuildContext context, String title, int type) {
-  Text text = new Text(
+  Text text = Text(
     title,
     style: type == 1
-        ? (new TextStyle(color: Theme.of(context).primaryColor))
-        : (new TextStyle(color: Colors.deepOrange)),
+        ? (TextStyle(color: Theme.of(context).primaryColor))
+        : (const TextStyle(color: Colors.deepOrange)),
   );
-  SimpleDialog simpleDialog = new SimpleDialog(
+  SimpleDialog simpleDialog = SimpleDialog(
     title: text,
     children: buildDialogItems(type, context),
   );
@@ -117,88 +118,103 @@ List<Widget> buildDialogItems(int type, BuildContext context) {
   // 第一种类型 简单的ListView
   if (type == 1) {
     list = <Widget>[
-      showDialogItemsClick(new Text('item1'), 'item1', context),
-      showDialogItemsClick(new Text('item2'), 'item2', context),
-      showDialogItemsClick(new Text('item3'), 'item3', context),
-      showDialogItemsClick(new Text('item4'), 'item4', context),
-      showDialogItemsClick(new Text('item5'), 'item5', context),
+      showDialogItemsClick(const Text('item1'), 'item1', context),
+      showDialogItemsClick(const Text('item2'), 'item2', context),
+      showDialogItemsClick(const Text('item3'), 'item3', context),
+      showDialogItemsClick(const Text('item4'), 'item4', context),
+      showDialogItemsClick(const Text('item5'), 'item5', context),
     ];
   } else if (type == 2) {
     list = <Widget>[
       showDialogItemsClick(
-          _buildListItemContent(contents: 'item1',bgColor:(Colors.teal[300])!), 'item1', context),
+          _buildListItemContent(
+              contents: 'item1', bgColor: (Colors.teal[300])!),
+          'item1',
+          context),
       showDialogItemsClick(
-          _buildListItemContent(contents: 'item2',bgColor:(Colors.teal[300])!), 'item2', context),
+          _buildListItemContent(
+              contents: 'item2', bgColor: (Colors.teal[300])!),
+          'item2',
+          context),
       showDialogItemsClick(
-          _buildListItemContent(contents: 'item3',bgColor:(Colors.teal[300])!), 'item3', context),
+          _buildListItemContent(
+              contents: 'item3', bgColor: (Colors.teal[300])!),
+          'item3',
+          context),
       showDialogItemsClick(
-          _buildListItemContent(contents: 'item4',bgColor:(Colors.teal[300])!), 'item4', context),
+          _buildListItemContent(
+              contents: 'item4', bgColor: (Colors.teal[300])!),
+          'item4',
+          context),
       showDialogItemsClick(
-          _buildListItemContent(contents: 'item5',bgColor:(Colors.teal[300])!), 'item5', context),
+          _buildListItemContent(
+              contents: 'item5', bgColor: (Colors.teal[300])!),
+          'item5',
+          context),
     ];
   } else if (type == 3) {
     list = <Widget>[
       showDialogItemsClick(
-          new ListTile(
-            leading: new Icon(
+          const ListTile(
+            leading: Icon(
               Icons.photo_album,
               color: Colors.redAccent,
             ),
-            title: new Text(
+            title: Text(
               '相册',
-              style: new TextStyle(color: Colors.deepOrangeAccent),
+              style: TextStyle(color: Colors.deepOrangeAccent),
             ),
           ),
           '相册',
           context),
       showDialogItemsClick(
-          new ListTile(
-            leading: new Icon(
+          const ListTile(
+            leading: const Icon(
               Icons.add,
               color: Colors.redAccent,
             ),
-            title: new Text(
+            title: const Text(
               '添加',
-              style: new TextStyle(color: Colors.deepOrangeAccent),
+              style: TextStyle(color: Colors.deepOrangeAccent),
             ),
           ),
           '添加',
           context),
       showDialogItemsClick(
-          new ListTile(
-            leading: new Icon(
+          const ListTile(
+            leading: const Icon(
               Icons.mic,
               color: Colors.redAccent,
             ),
-            title: new Text(
+            title: const Text(
               '录音',
-              style: new TextStyle(color: Colors.deepOrangeAccent),
+              style: TextStyle(color: Colors.deepOrangeAccent),
             ),
           ),
           '录音',
           context),
       showDialogItemsClick(
-          new ListTile(
-            leading: new Icon(
+          const ListTile(
+            leading: const Icon(
               Icons.mail,
               color: Colors.redAccent,
             ),
-            title: new Text(
+            title: const Text(
               '邮件',
-              style: new TextStyle(color: Colors.deepOrangeAccent),
+              style: TextStyle(color: Colors.deepOrangeAccent),
             ),
           ),
           '邮件',
           context),
       showDialogItemsClick(
-          new ListTile(
-            leading: new Icon(
+          const ListTile(
+            leading: Icon(
               Icons.search,
               color: Colors.redAccent,
             ),
-            title: new Text(
+            title: const Text(
               '搜索',
-              style: new TextStyle(color: Colors.deepOrangeAccent),
+              style: TextStyle(color: Colors.deepOrangeAccent),
             ),
           ),
           '搜索',
@@ -211,7 +227,7 @@ List<Widget> buildDialogItems(int type, BuildContext context) {
 // 点击弹窗里面的每一个item时的事件
 // 参数1：要点击的item  参数2：toast的内容
 Widget showDialogItemsClick(Widget child, String msg, BuildContext context) {
-  return new InkWell(
+  return InkWell(
     child: child,
     onTap: () {
       Navigator.pop(context);

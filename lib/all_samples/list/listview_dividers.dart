@@ -15,20 +15,20 @@ import 'package:flutter/material.dart';
 class ListViewDividerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: new Text(
+        title: const Text(
           'ListView带分割线',
-          style: new TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
-      body: new GestureDetector(
+      body: GestureDetector(
           onTap: () {
             print('点击了item！');
           },
@@ -38,40 +38,40 @@ class ListViewDividerDemo extends StatelessWidget {
 
   // 简单的listview带分割线
   Widget buildListItem() {
-    return new ListView(
+    return ListView(
       shrinkWrap: true,
       padding: const EdgeInsets.all(20.0),
       children: <Widget>[
         buildContents('item1'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item2'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item3'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item4'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item4'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item5'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item6'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item7'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item8'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item9'),
-        new Divider(height: 1.0, color: Colors.grey),
+        const Divider(height: 1.0, color: Colors.grey),
         buildContents('item10'),
       ],
     );
   }
 
   Widget buildContents(var text) {
-    return new Container(
+    return Container(
       alignment: Alignment.centerLeft,
-      constraints: new BoxConstraints.expand(height: 56.0),
-      child: new Text(text),
+      constraints: const BoxConstraints.expand(height: 56.0),
+      child: Text(text),
     );
   }
 }

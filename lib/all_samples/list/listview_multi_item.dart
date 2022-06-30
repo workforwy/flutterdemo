@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: '多种类型item的ListView的demo',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: new ListViewMultiItemDemo(),
+      home: ListViewMultiItemDemo(),
     ),
   );
 }
@@ -16,21 +16,20 @@ void main() {
 //// 以下是多条目的ListView的demo
 /////////////////////////////////////
 
-List<ListItem> items = new List<ListItem>.generate(
+List<ListItem> items = List<ListItem>.generate(
   1000,
-  (i) => i % 6 == 0
-      ? new HeadingItem("标题 $i")
-      : new MessageItem("子标题 $i", "子标题描述字段 $i"),
+  (i) =>
+      i % 6 == 0 ? HeadingItem("标题 $i") : MessageItem("子标题 $i", "子标题描述字段 $i"),
 );
 
 class ListViewMultiItemDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
           '多种类型item的ListView的demo',
-          style: new TextStyle(fontSize: 17.0),
+          style: const TextStyle(fontSize: 17.0),
         ),
       ),
       body: buildListItems(),
@@ -38,24 +37,24 @@ class ListViewMultiItemDemo extends StatelessWidget {
   }
 
   Widget buildListItems() {
-    return new ListView.builder(itemBuilder: (context, index) {
+    return ListView.builder(itemBuilder: (context, index) {
       final item = items[index];
       if (item is HeadingItem) {
-        return new ListTile(
-          title: new Text(
+        return ListTile(
+          title: Text(
             item.heading,
-            style: new TextStyle(fontSize: 25.0, color: Colors.lightBlue),
+            style: const TextStyle(fontSize: 25.0, color: Colors.lightBlue),
           ),
         );
       } else if (item is MessageItem) {
-        return new ListTile(
-          title: new Text(
+        return ListTile(
+          title: Text(
             item.sender,
-            style: new TextStyle(fontSize: 15.0, color: Colors.blueAccent[100]),
+            style: TextStyle(fontSize: 15.0, color: Colors.blueAccent[100]),
           ),
-          subtitle: new Text(
+          subtitle: Text(
             item.body,
-            style: new TextStyle(fontSize: 15.0, color: Colors.grey),
+            style: const TextStyle(fontSize: 15.0, color: Colors.grey),
           ),
         );
       }

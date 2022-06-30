@@ -6,8 +6,10 @@ void main() => runApp(MainPage());
 
 // 使用示例代码
 class MainPage extends StatefulWidget {
+  const MainPage({Key? key}) : super(key: key);
+
   @override
-  MainPageState createState() => new MainPageState();
+  MainPageState createState() => MainPageState();
 }
 
 class MainPageState extends State<MainPage> {
@@ -39,7 +41,6 @@ class MainPageState extends State<MainPage> {
 }
 
 class PageOne extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     // 非首页 isFirstPage: false, 默认就是非首页

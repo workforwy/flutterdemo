@@ -16,55 +16,56 @@ import 'sliver_vs_grid.dart';
 import 'vertical_list_nested_horizontal_list.dart';
 
 class ListViewDemos extends StatelessWidget {
+  const ListViewDemos({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = <Widget>[
       buildClicks(
-          buildContents('简单ListViewDemo'), context, new ListViewSimpleDemo()),
+          buildContents('简单ListViewDemo'), context, ListViewSimpleDemo()),
       buildClicks(
-          buildContents('ListView带分割线'), context, new ListViewDividerDemo()),
+          buildContents('ListView带分割线'), context, ListViewDividerDemo()),
       buildClicks(buildContents('ListView.builder构建长列表'), context,
-          new ListViewLongListDemo()),
+          ListViewLongListDemo()),
       buildClicks(
-          buildContents('横向ListView'), context, new ListViewHorizontalDemo()),
+          buildContents('横向ListView'), context, ListViewHorizontalDemo()),
       buildClicks(
-          buildContents('ListTile的使用'), context, new ListViewListTileDemo()),
+          buildContents('ListTile的使用'), context, ListViewListTileDemo()),
       buildClicks(buildContents('ListView的RadioListTile的切换'), context,
-          new RadioListTileDemo()),
+          RadioListTileDemo()),
       buildClicks(buildContents('使用CustomScrollView创建列表'), context,
-          new ListViewCustomScrollViewDemo()),
+          ListViewCustomScrollViewDemo()),
       buildClicks(
-          buildContents('创建GridView列表'), context, new ListViewGridViewDemo()),
-      buildClicks(buildContents('可折叠的AppBar+ListView'), context,
-          new ListViewSliverDemo()),
-      buildClicks(buildContents('多条目的ListView的demo'), context,
-          new ListViewMultiItemDemo()),
+          buildContents('创建GridView列表'), context, ListViewGridViewDemo()),
       buildClicks(
-          buildContents('多级列表Demo'), context, new ListViewMultiLevelDemo()),
+          buildContents('可折叠的AppBar+ListView'), context, ListViewSliverDemo()),
+      buildClicks(
+          buildContents('多条目的ListView的demo'), context, ListViewMultiItemDemo()),
+      buildClicks(buildContents('多级列表Demo'), context, ListViewMultiLevelDemo()),
       buildClicks(buildContents(' SliverGrid 和 GridView 的对比'), context,
-          new SliverGridVSGridView()),
+          SliverGridVSGridView()),
       // buildClicks(buildContents('垂直listview嵌套水平的listview'), context,
       //     new ListViewNestedDemo()),
-      new Text(''),
+      const Text(''),
     ];
 
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               print('返回首页');
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: new Text('ListView用法Demo'),
+        title: const Text('ListView用法Demo'),
       ),
-      body: new ListView(children: widgets),
+      body: ListView(children: widgets),
     );
   }
 
   Widget buildClicks(Widget child, BuildContext context, Widget page) {
-    return new InkWell(
+    return InkWell(
       child: child,
       onTapDown: (details) {
         print('onTapDown');
@@ -74,7 +75,7 @@ class ListViewDemos extends StatelessWidget {
             gravity: ToastGravity.BOTTOM);
         // 发送路由消息
         Navigator.push(context,
-            new MaterialPageRoute(builder: (BuildContext context) => page));
+            MaterialPageRoute(builder: (BuildContext context) => page));
       },
       onTap: () {
         Fluttertoast.showToast(
@@ -98,27 +99,27 @@ class ListViewDemos extends StatelessWidget {
   }
 
   Widget buildContents(var text) {
-    return new Container(
-      margin: new EdgeInsets.all(5.0),
-      padding: new EdgeInsets.all(5.0),
+    return Container(
+      margin: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
       alignment: Alignment.center,
-      constraints: new BoxConstraints.expand(height: 40.0),
-      decoration: new BoxDecoration(
+      constraints: const BoxConstraints.expand(height: 40.0),
+      decoration: BoxDecoration(
         color: Colors.teal[300],
-        borderRadius: new BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           //让矩形四个角都变成圆角
-          const Radius.circular(8.0),
+          Radius.circular(8.0),
         ),
         // 阴影
         boxShadow: <BoxShadow>[
-          new BoxShadow(
+          BoxShadow(
             color: (Colors.teal[100])!,
-            offset: new Offset(0.0, 5.0),
+            offset: const Offset(0.0, 5.0),
             blurRadius: 8.0,
           ),
-          new BoxShadow(
+          const BoxShadow(
             color: Colors.grey,
-            offset: new Offset(0.0, 6.0),
+            offset: Offset(0.0, 6.0),
             blurRadius: 8.0,
           ),
         ],
@@ -128,9 +129,9 @@ class ListViewDemos extends StatelessWidget {
   }
 
   Widget buildButton(var text) {
-    return new Text(
+    return Text(
       text,
-      style: new TextStyle(
+      style: const TextStyle(
         color: Colors.white,
         fontSize: 16.0,
       ),

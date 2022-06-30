@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'CustomScrollView创建一个列表',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: new ListViewGridViewDemo(),
+      home: ListViewGridViewDemo(),
     ),
   );
 }
@@ -15,20 +15,20 @@ void main() {
 class ListViewGridViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: new Text(
+        title: const Text(
           '创建GridView列表',
-          style: new TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
-      body: new GestureDetector(
+      body: GestureDetector(
           onTap: () {
             print('点击了item！');
           },
@@ -38,7 +38,7 @@ class ListViewGridViewDemo extends StatelessWidget {
 
 // grid列表
   Widget buildGridListItem(BuildContext context) {
-    return new GridView.count(
+    return GridView.count(
       // 创建4列
       crossAxisCount: 4,
       // Axis.horizontal表示横向滑动，scrollDirection: Axis.vertical表示纵向滑动
@@ -55,11 +55,11 @@ class ListViewGridViewDemo extends StatelessWidget {
       childAspectRatio: 2.0,
 
       // 生成100个item展示在列表中
-      children: new List.generate(100, (index) {
-        return new Container(
+      children: List.generate(100, (index) {
+        return Container(
           // margin外边距，这里是上边距为2.0像素，下边距为2.0像素
           // margin: new EdgeInsets.fromLTRB(0.0, 2.0, 0.0, 2.0),
-          decoration: new BoxDecoration(color: Colors.teal),
+          decoration: const BoxDecoration(color: Colors.teal),
           child: buildGridItem(context, index),
         );
       }),
@@ -67,15 +67,15 @@ class ListViewGridViewDemo extends StatelessWidget {
   }
 
   Widget buildGridItem(BuildContext context, int index) {
-    return new Column(
+    return Column(
       children: <Widget>[
-        new Icon(
+        const Icon(
           Icons.share,
           color: Colors.white,
         ),
-        new Text(
+        Text(
           'Item $index',
-          style: new TextStyle(
+          style: const TextStyle(
             fontSize: 14.0,
             color: Colors.white,
           ),

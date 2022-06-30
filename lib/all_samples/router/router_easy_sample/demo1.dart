@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'Demo1',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: new Demo1(),
+      home: Demo1(),
     ),
   );
 }
@@ -15,26 +15,26 @@ void main() {
 class Demo1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         //背景色
         backgroundColor: Colors.red,
         // icon的主题色
-        iconTheme: new IconThemeData(color: Colors.tealAccent),
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+        iconTheme: const IconThemeData(color: Colors.tealAccent),
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               print('返回首页');
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: new Text(
+        title: const Text(
           'Demo1',
-          style: new TextStyle(color: Colors.tealAccent),
+          style: TextStyle(color: Colors.tealAccent),
         ),
       ),
-      body: new Center(
-        child: new Text('hello world'),
+      body: const Center(
+        child: Text('hello world'),
       ),
     );
   }

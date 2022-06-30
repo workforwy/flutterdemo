@@ -6,35 +6,36 @@ import 'simple_dialog_demo.dart';
 import 'snackbar_demo.dart';
 
 class AlertDialogDemo extends StatelessWidget {
+  const AlertDialogDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = <Widget>[
-      buildClicks(buildContents('SnackBar的使用'), context, new SnackBarDemo()),
+      buildClicks(buildContents('SnackBar的使用'), context, SnackBarDemo()),
       buildClicks(
-          buildContents('SimpleDialog的使用'), context, new SimpleDialogDemo()),
-      buildClicks(
-          buildContents('AlertDialog的使用'), context, new AlertDialogDemo()),
+          buildContents('SimpleDialog的使用'), context, SimpleDialogDemo()),
+      buildClicks(buildContents('AlertDialog的使用'), context, AlertDialogDemo()),
       //      buildClicks(buildContents('BottomSheet的使用'), context, new SnackBarDemo()),
       //      buildClicks(
       //          buildContents('ExpansionPanel的使用'), context, new SnackBarDemo()),
     ];
 
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: new Text('各种弹窗&提示控件用法'),
+        title: const Text('各种弹窗&提示控件用法'),
       ),
-      body: new ListView(children: widgets),
+      body: ListView(children: widgets),
     );
   }
 
   Widget buildClicks(Widget child, BuildContext context, Widget page) {
-    return new InkWell(
+    return InkWell(
       child: child,
       onTapDown: (details) {
         print('onTapDown');
@@ -44,7 +45,7 @@ class AlertDialogDemo extends StatelessWidget {
             gravity: ToastGravity.BOTTOM);
         // 发送路由消息
         Navigator.push(context,
-            new MaterialPageRoute(builder: (BuildContext context) => page));
+            MaterialPageRoute(builder: (BuildContext context) => page));
       },
       onTap: () {
         Fluttertoast.showToast(
@@ -68,27 +69,27 @@ class AlertDialogDemo extends StatelessWidget {
   }
 
   Widget buildContents(var text) {
-    return new Container(
-      margin: new EdgeInsets.all(5.0),
-      padding: new EdgeInsets.all(5.0),
+    return Container(
+      margin: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
       alignment: Alignment.center,
-      constraints: new BoxConstraints.expand(height: 40.0),
-      decoration: new BoxDecoration(
+      constraints: const BoxConstraints.expand(height: 40.0),
+      decoration: BoxDecoration(
         color: Colors.teal[300],
-        borderRadius: new BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           //让矩形四个角都变成圆角
-          const Radius.circular(8.0),
+          Radius.circular(8.0),
         ),
         // 阴影
         boxShadow: <BoxShadow>[
-          new BoxShadow(
+          BoxShadow(
             color: (Colors.teal[100])!,
-            offset: new Offset(0.0, 5.0),
+            offset: const Offset(0.0, 5.0),
             blurRadius: 8.0,
           ),
-          new BoxShadow(
+          const BoxShadow(
             color: Colors.grey,
-            offset: new Offset(0.0, 6.0),
+            offset: Offset(0.0, 6.0),
             blurRadius: 8.0,
           ),
         ],
@@ -98,9 +99,9 @@ class AlertDialogDemo extends StatelessWidget {
   }
 
   Widget buildButton(var text) {
-    return new Text(
+    return Text(
       text,
-      style: new TextStyle(
+      style: const TextStyle(
         color: Colors.white,
         fontSize: 16.0,
       ),

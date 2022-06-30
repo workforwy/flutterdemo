@@ -3,17 +3,17 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class SnackBarDemo extends StatefulWidget {
   @override
-  _SnackBarDemoState createState() => new _SnackBarDemoState();
+  _SnackBarDemoState createState() => _SnackBarDemoState();
 }
 
 class _SnackBarDemoState extends State<SnackBarDemo> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
           'SnackBarDemo',
-          style: new TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
       body: setBuilders(context),
@@ -23,14 +23,14 @@ class _SnackBarDemoState extends State<SnackBarDemo> {
 
 Widget setBuilders(BuildContext context) {
   // 如果去掉new Builder ，那么SnackBar不会显示
-  return new Builder(builder: (BuildContext context) {
+  return Builder(builder: (BuildContext context) {
     // 必须加上return 不加就报错
     return buildClicks(buildContents('显示SnackBar'), context);
   });
 }
 
 Widget buildClicks(Widget child, BuildContext context) {
-  return new InkWell(
+  return InkWell(
     child: child,
     onTapDown: (details) {
       Fluttertoast.showToast(
@@ -38,17 +38,17 @@ Widget buildClicks(Widget child, BuildContext context) {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER);
 
-      final snackBar = new SnackBar(
+      final snackBar = SnackBar(
         // SnackBar的主体内容
-        content: new Text(
+        content: const Text(
           '这是一个SnackBar',
-          style: new TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white),
         ),
         // 显示的时间，默认是1.5s 我这里设置的是5秒
-        duration: new Duration(seconds: 5),
+        duration: const Duration(seconds: 5),
         backgroundColor: Colors.deepOrangeAccent,
         // 交互动作，可以在这里写，我这里写的是关闭SnackBar的操作
-        action: new SnackBarAction(
+        action: SnackBarAction(
           // label的颜色跟主题色有关
           label: '取消',
           onPressed: () {
@@ -71,27 +71,27 @@ Widget buildClicks(Widget child, BuildContext context) {
 }
 
 Widget buildContents(var text) {
-  return new Container(
-    margin: new EdgeInsets.all(5.0),
-    padding: new EdgeInsets.all(5.0),
+  return Container(
+    margin: const EdgeInsets.all(5.0),
+    padding: const EdgeInsets.all(5.0),
     alignment: Alignment.center,
-    constraints: new BoxConstraints.expand(height: 40.0),
-    decoration: new BoxDecoration(
+    constraints: const BoxConstraints.expand(height: 40.0),
+    decoration: BoxDecoration(
       color: Colors.teal[300],
-      borderRadius: new BorderRadius.all(
+      borderRadius: const BorderRadius.all(
         //让矩形四个角都变成圆角
-        const Radius.circular(8.0),
+        Radius.circular(8.0),
       ),
       // 阴影
       boxShadow: <BoxShadow>[
-        new BoxShadow(
+        BoxShadow(
           color: (Colors.teal[100])!,
-          offset: new Offset(0.0, 5.0),
+          offset: const Offset(0.0, 5.0),
           blurRadius: 8.0,
         ),
-        new BoxShadow(
+        const BoxShadow(
           color: Colors.grey,
-          offset: new Offset(0.0, 6.0),
+          offset: const Offset(0.0, 6.0),
           blurRadius: 8.0,
         ),
       ],
@@ -101,9 +101,9 @@ Widget buildContents(var text) {
 }
 
 Widget buildButton(var text) {
-  return new Text(
+  return Text(
     text,
-    style: new TextStyle(
+    style: const TextStyle(
       color: Colors.white,
       fontSize: 16.0,
     ),

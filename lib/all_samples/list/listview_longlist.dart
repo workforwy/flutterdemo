@@ -2,33 +2,35 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'ListView.builder构建长列表',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: new ListViewLongListDemo(),
+      home: ListViewLongListDemo(),
     ),
   );
 }
 
 class ListViewLongListDemo extends StatelessWidget {
+  const ListViewLongListDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: new Text(
+        title: const Text(
           'ListView.builder构建长列表',
-          style: new TextStyle(fontSize: 17.0),
+          style: const TextStyle(fontSize: 17.0),
         ),
       ),
-      body: new GestureDetector(
+      body: GestureDetector(
           onTap: () {
             print('点击了item！');
           },
@@ -37,15 +39,15 @@ class ListViewLongListDemo extends StatelessWidget {
   }
 
   // 长文本
-  final items = new List<String>.generate(10000, (i) => "Item $i");
+  final items = List<String>.generate(10000, (i) => "Item $i");
 
   // 通过ListView.builder 构建一个长列表
   Widget buildListItem() {
-    return new ListView.builder(
+    return ListView.builder(
 //      padding: new EdgeInsets.all(8.0),
       itemCount: items.length,
       itemBuilder: (BuildContext context, int index) {
-        return new ListTile(
+        return ListTile(
 //          title: new Text('${items[index]}'),//不加分割线
           title: buildItems(context, index), //添加分割线
         );
@@ -54,13 +56,12 @@ class ListViewLongListDemo extends StatelessWidget {
   }
 
   Widget buildItems(BuildContext context, int index) {
-    return new Column(
+    return Column(
       children: <Widget>[
-        new Container(
+        Container(
           child: Text('${items[index]}'),
         ),
-        new Divider(
-            height: 1.0, indent: 0.0, color: Theme.of(context).accentColor),
+        Divider(height: 1.0, indent: 0.0, color: Theme.of(context).accentColor),
       ],
     );
   }

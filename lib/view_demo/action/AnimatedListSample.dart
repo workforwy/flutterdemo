@@ -25,7 +25,6 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
   ListModel<int> _list;
   int _selectedItem;
   int _nextItem; // 当用户按下“+”按钮时插入的下一个item。
-
   @override
   void initState() {
     super.initState();

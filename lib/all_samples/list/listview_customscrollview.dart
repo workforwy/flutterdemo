@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'CustomScrollView创建一个列表',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: new ListViewCustomScrollViewDemo(),
+      home: ListViewCustomScrollViewDemo(),
     ),
   );
 }
@@ -15,20 +15,20 @@ void main() {
 class ListViewCustomScrollViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: new Text(
+        title: const Text(
           'CustomScrollView创建一个列表',
-          style: new TextStyle(fontSize: 17.0),
+          style: const TextStyle(fontSize: 17.0),
         ),
       ),
-      body: new GestureDetector(
+      body: GestureDetector(
           onTap: () {
             print('点击了item！');
           },
@@ -38,34 +38,34 @@ class ListViewCustomScrollViewDemo extends StatelessWidget {
 
   // 使用CustomScrollView创建一个列表
   Widget buildListItem() {
-    return new CustomScrollView(
+    return CustomScrollView(
       shrinkWrap: true,
       slivers: <Widget>[
-        new SliverPadding(
+        SliverPadding(
           padding: const EdgeInsets.all(20.0),
-          sliver: new SliverList(
-            delegate: new SliverChildListDelegate(
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
               <Widget>[
                 buildContents('item1'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item2'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item3'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item4'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item4'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item5'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item6'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item7'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item8'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item9'),
-                new Divider(height: 1.0, color: Colors.grey),
+                const Divider(height: 1.0, color: Colors.grey),
                 buildContents('item10'),
               ],
             ),
@@ -77,9 +77,9 @@ class ListViewCustomScrollViewDemo extends StatelessWidget {
 }
 
 Widget buildContents(var text) {
-  return new Container(
+  return Container(
     alignment: Alignment.centerLeft,
-    constraints: new BoxConstraints.expand(height: 56.0),
-    child: new Text(text),
+    constraints: const BoxConstraints.expand(height: 56.0),
+    child: Text(text),
   );
 }

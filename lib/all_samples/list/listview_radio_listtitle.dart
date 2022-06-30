@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'ListView的RadioListTile的切换',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
       //动态演示RadioListTile的切换
-      home: new RadioListTileDemo(),
+      home: RadioListTileDemo(),
     ),
   );
 }
@@ -16,17 +16,17 @@ void main() {
 // RadioListTile的示范代码
 class RadioListTileDemo extends StatefulWidget {
   @override
-  _RadioListTileDemoState createState() => new _RadioListTileDemoState();
+  _RadioListTileDemoState createState() => _RadioListTileDemoState();
 }
 
 class _RadioListTileDemoState extends State<RadioListTileDemo> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
           'ListView的RadioListTile的切换',
-          style: new TextStyle(fontSize: 17.0),
+          style: const TextStyle(fontSize: 17.0),
         ),
       ),
       body: items(),
@@ -35,10 +35,10 @@ class _RadioListTileDemoState extends State<RadioListTileDemo> {
 
   // 示例来源于源码
   Widget items() {
-    return new Column(
+    return Column(
       // In the build function of that State
       children: <Widget>[
-        new RadioListTile<SingingCharacter>(
+        RadioListTile<SingingCharacter>(
           title: const Text('item title1'),
           value: SingingCharacter.title1,
           groupValue: _character,
@@ -48,7 +48,7 @@ class _RadioListTileDemoState extends State<RadioListTileDemo> {
             });
           },
         ),
-        new RadioListTile<SingingCharacter>(
+        RadioListTile<SingingCharacter>(
           title: const Text('item title2'),
           value: SingingCharacter.title2,
           groupValue: _character,

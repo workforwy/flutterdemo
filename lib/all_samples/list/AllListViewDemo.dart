@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'ListView的使用',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: new ListViewDemo(),
+      home: ListViewDemo(),
     ),
   );
 }
@@ -15,11 +15,11 @@ void main() {
 class ListViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('ListView的使用'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('ListView的使用'),
       ),
-      body: new GestureDetector(
+      body: GestureDetector(
           onTap: () {
             print('点击了item！');
           },
@@ -29,9 +29,8 @@ class ListViewDemo extends StatelessWidget {
 
   // 自定义可折叠的列表
   Widget buildListItem4() {
-    return new ListView.builder(
-      itemBuilder: (BuildContext context, int index) =>
-          new EntryItem(data[index]),
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) => EntryItem(data[index]),
       itemCount: data.length,
     );
   }
@@ -52,12 +51,12 @@ class EntryItem extends StatelessWidget {
 
   Widget _buildTiles(Entry root) {
     if (root.children.isEmpty) {
-      return new ListTile(title: new Text(root.title)); //这个只是显示一个标题
+      return ListTile(title: Text(root.title)); //这个只是显示一个标题
     }
-    return new ExpansionTile(
+    return ExpansionTile(
       //这个可以展开折叠视图
-      key: new PageStorageKey<Entry>(root),
-      title: new Text(root.title),
+      key: PageStorageKey<Entry>(root),
+      title: Text(root.title),
       children: root.children.map(_buildTiles).toList(),
     );
   }
@@ -65,40 +64,40 @@ class EntryItem extends StatelessWidget {
 
 /// 应用程序显示的整个多级列表
 final List<Entry> data = <Entry>[
-  new Entry(
+  Entry(
     'Chapter 1',
     <Entry>[
-      new Entry(
+      Entry(
         '    Section 1-1',
         <Entry>[
-          new Entry('      Item 1-1-1'),
-          new Entry('      Item 1-1-2'),
-          new Entry('      Item 1-1-3'),
+          Entry('      Item 1-1-1'),
+          Entry('      Item 1-1-2'),
+          Entry('      Item 1-1-3'),
         ],
       ),
-      new Entry('    Section 1-2'),
-      new Entry('    Section 1-3'),
+      Entry('    Section 1-2'),
+      Entry('    Section 1-3'),
     ],
   ),
-  new Entry(
+  Entry(
     'Chapter 2',
     <Entry>[
-      new Entry('    Section 2-1'),
-      new Entry('    Section 2-2'),
+      Entry('    Section 2-1'),
+      Entry('    Section 2-2'),
     ],
   ),
-  new Entry(
+  Entry(
     'Chapter 3',
     <Entry>[
-      new Entry('    Section 3-1'),
-      new Entry('    Section 3-2'),
-      new Entry(
+      Entry('    Section 3-1'),
+      Entry('    Section 3-2'),
+      Entry(
         '    Section 3-3',
         <Entry>[
-          new Entry('        Item 3-3-1'),
-          new Entry('        Item 3-3-2'),
-          new Entry('        Item 3-3-3'),
-          new Entry('        Item 3-3-4'),
+          Entry('        Item 3-3-1'),
+          Entry('        Item 3-3-2'),
+          Entry('        Item 3-3-3'),
+          Entry('        Item 3-3-4'),
         ],
       ),
     ],

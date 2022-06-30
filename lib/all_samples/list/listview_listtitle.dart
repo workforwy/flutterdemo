@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'ListTile以及子类的使用',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: new ListViewListTileDemo(),
+      home: ListViewListTileDemo(),
     ),
   );
 }
@@ -15,20 +15,20 @@ void main() {
 class ListViewListTileDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: new Text(
+        title: const Text(
           'ListTile以及子类的使用',
-          style: new TextStyle(fontSize: 17.0),
+          style: const TextStyle(fontSize: 17.0),
         ),
       ),
-      body: new GestureDetector(
+      body: GestureDetector(
           onTap: () {
             print('点击了item！');
           },
@@ -38,15 +38,15 @@ class ListViewListTileDemo extends StatelessWidget {
 
 // ListTile以及子类的使用
   Widget buildListItem() {
-    return new ListView(
+    return ListView(
       children: <Widget>[
         // 一个有图片和文字组成的简单列表item
-        new ListTile(
-          leading: new Icon(Icons.account_circle),
-          title: new Text('联系人'),
-          subtitle: new Text('联系人简介'),
+        ListTile(
+          leading: const Icon(Icons.account_circle),
+          title: const Text('联系人'),
+          subtitle: const Text('联系人简介'),
           // 右边的图标
-          trailing: new Icon(Icons.chevron_right),
+          trailing: const Icon(Icons.chevron_right),
           onTap: () {
             print('点击了 ListTile  ==== title为：联系人');
           },
@@ -55,33 +55,33 @@ class ListViewListTileDemo extends StatelessWidget {
           },
           selected: true,
         ),
-        new ListTile(
-          leading: new Icon(Icons.photo_album),
-          title: new Text('相册'),
+        const ListTile(
+          leading: Icon(Icons.photo_album),
+          title: const Text('相册'),
         ),
-        new ListTile(
-          leading: new Icon(Icons.phone),
-          title: new Text('电话'),
+        const ListTile(
+          leading: const Icon(Icons.phone),
+          title: const Text('电话'),
         ),
         // 单选框列表item
-        new CheckboxListTile(
+        CheckboxListTile(
           value: true,
           onChanged: ((bool) {
             print('点击了CheckboxListTile');
           }),
-          title: new Text('相册'),
-          subtitle: new Text('相册的描述'),
+          title: const Text('相册'),
+          subtitle: const Text('相册的描述'),
           selected: true,
           activeColor: Colors.teal,
         ),
         // 开关列表item
-        new SwitchListTile(
+        SwitchListTile(
           value: true,
           onChanged: ((bool) {
             print('点击了SwitchListTile');
           }),
-          title: new Text('相册'),
-          subtitle: new Text('相册的描述..............................'
+          title: const Text('相册'),
+          subtitle: const Text('相册的描述..............................'
               '...................................'
               '.....................'),
           //如果subtitle文字过长，将会以三行显示
@@ -90,12 +90,12 @@ class ListViewListTileDemo extends StatelessWidget {
           activeColor: Colors.teal,
 //        dense: false,
           //SwitchListTile左边的图标
-          secondary: new Icon(Icons.account_circle),
+          secondary: const Icon(Icons.account_circle),
         ),
-        new AboutListTile(
-          icon: new Icon(Icons.panorama),
+        const AboutListTile(
+          icon: const Icon(Icons.panorama),
           //公司logo
-          applicationIcon: new FlutterLogo(),
+          applicationIcon: const FlutterLogo(),
           //app名称
           applicationName: '关于我们',
           //app版本号
