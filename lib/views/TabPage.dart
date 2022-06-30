@@ -1,49 +1,55 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/utils/AdobeLogo.dart';
-import 'package:flutter_app/views/HomePage.dart';
-import 'package:flutter_app/views/MainPage.dart';
-import 'package:flutter_app/views/MyPage.dart';
-import 'package:flutter_app/widget/HomeDrawer.dart';
-import 'package:flutter_app/widget/TabBarWidget.dart';
+import '../widget/HomeDrawer.dart';
+import '../widget/TabBarWidget.dart';
+import 'HomePage.dart';
+import 'MainPage.dart';
+import 'MyPage.dart';
+
+void main() {
+  runApp(const TabPage());
+}
 
 class TabPage extends StatelessWidget {
+  const TabPage({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     //初始化标签
     List<Widget> tabs = [
-      _renderTab(new Text("首页")),
-      _renderTab(new Text("主页")),
-      _renderTab(new Text("我的")),
+      _renderTab(const Text("首页")),
+      _renderTab(const Text("主页")),
+      _renderTab(const Text("我的")),
     ];
     //一个控件，可以监听返回键
-    return new WillPopScope(
-      child: new TabBarWidget(
-        drawer: new HomeDrawer(),
-        title: new Text("tab"),
+    return WillPopScope(
+      onWillPop: () {},
+      child: TabBarWidget(
+        drawer: HomeDrawer(),
+        title: const Text("tab"),
         type: TabBarWidget.BOTTOM_TAB,
         tabItems: tabs,
         tabViews: [
-          new HomePage(title: '首页'),
-          new MainPage(),
-          new MyPage(title: '我的'),
-
+          HomePage(),
+          MainPage(),
+          MyPage(),
         ],
         backgroundColor: Theme.of(context).primaryColor,
         indicatorColor: Theme.of(context).indicatorColor,
+        onPageChanged: (int value) {},
       ),
     );
   }
 
   _renderTab(text) {
     //返回一个标签
-    return new Tab(
-        child: new Container(
+    return Tab(
+        child: Container(
       //设置paddingTop为6
-      padding: new EdgeInsets.only(top: 6),
+      padding: const EdgeInsets.only(top: 6),
       //一个列控件
-      child: new Column(
+      child: Column(
         //竖直方向居中
         mainAxisAlignment: MainAxisAlignment.center,
         //水平方向居中

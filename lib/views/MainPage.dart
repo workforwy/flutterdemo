@@ -9,9 +9,9 @@
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
-  MainPage({Key key, this.title}) : super(key: key);
-
   final String title;
+
+  const MainPage({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,9 @@ class MainPage extends StatelessWidget {
       title: 'Main',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('主页'),
+          title: const Text('主页'),
         ),
-        body: Center(
+        body: const Center(
           child: Text('这是主页'),
         ),
       ),

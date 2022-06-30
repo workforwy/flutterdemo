@@ -10,19 +10,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyPage extends StatelessWidget {
-  MyPage({Key key, this.title}) : super(key: key);
   final String title;
+
+  const MyPage({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: title,
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('尾页'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('尾页'),
         ),
-        body: new Center(
-          child: new Text('我是尾页123'),
+        body: const Center(
+          child: const Text('我是尾页123'),
         ),
       ),
     );
