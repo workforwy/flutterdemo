@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -91,19 +91,21 @@ class _MyHomePageState extends State<MyHomePage>
     currentState：当前树中具有此键的控件的状态
     showBottomSheet：显示持久的质感设计底部板块
      */
-    _scaffoldKey.currentState.showBottomSheet<Null>((BuildContext context) {
-      return new Container(
-          decoration: new BoxDecoration(
+    if (_scaffoldKey.currentState.showBottomSheet != null) {
+      _scaffoldKey.currentState.showBottomSheet((BuildContext context) {
+        return new Container(
+            decoration: new BoxDecoration(
               //容器顶部的边界颜色为当前主题颜色
-              border: new Border(
-                  top: new BorderSide(color: Theme.of(context).dividerColor))),
-          child: new Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: new Text(
-                _selectedPage.fabDefined == true ? _explanatoryText : "",
-                style: new TextStyle(color: _selectedPage.labelColor),
-              )));
-    });
+                border: new Border(
+                    top: new BorderSide(color: Theme.of(context).dividerColor))),
+            child: new Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: new Text(
+                  _selectedPage.fabDefined == true ? _explanatoryText : "",
+                  style: new TextStyle(color: _selectedPage.labelColor),
+                )));
+      });
+    }
   }
 
   Widget buildTabView(_Page page) {
@@ -148,9 +150,9 @@ const String _explanatoryText = "当Scaffold的浮动操作按钮改变时，新
  */
 class _Page {
   _Page({
-    this.label,
-    this.colors,
-    this.icon,
+    required  this.label,
+    required this.colors,
+    required this.icon,
   });
 
   final String label;

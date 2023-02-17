@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-//void main() {
-//  runApp(
-//    new MaterialApp(
-//      title: 'ListView带分割线',
-//      theme: new ThemeData(
-//        primarySwatch: Colors.blue, //设置全局主题
-//      ),
-//      home: new ListViewDividerDemo(),
-//    ),
-//  );
-//}
+void main() {
+ runApp(
+   new MaterialApp(
+     title: 'ListView带分割线',
+     theme: new ThemeData(
+       primarySwatch: Colors.blue, //设置全局主题
+     ),
+     home: new ListViewDividerDemo(),
+   ),
+ );
+}
 
 class ListViewDividerDemo extends StatelessWidget {
   @override

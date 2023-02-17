@@ -27,7 +27,7 @@ class AlertDialogDemo extends StatelessWidget {
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
-            }),
+            }),x vx
         title: const Text('各种弹窗&提示控件用法'),
       ),
       body: ListView(children: widgets),
