@@ -35,7 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   english_words: ^4.0.0
-  flutter_logger: ^0.0.4+1
+#  flutter_logger: ^0.0.4+1
   # 读取与写入文件
   path_provider: ^2.0.1
   # 图片处理
