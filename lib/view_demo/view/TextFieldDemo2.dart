@@ -2,87 +2,89 @@ import 'package:flutter/material.dart';
 
 //带交互效果的Form  + TextFormField
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: 'FieldDemo',
-    theme: new ThemeData(
+    theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: new FieldDemo(),
+    home: const FieldDemo(),
   ));
 }
 
 class FieldDemo extends StatefulWidget {
+  const FieldDemo({Key? key}) : super(key: key);
+
   @override
-  _FieldDemoState createState() => new _FieldDemoState();
+  _FieldDemoState createState() => _FieldDemoState();
 }
 
 class _FieldDemoState extends State<FieldDemo> {
-  GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _name;
   String _color;
   String _config;
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('新增商品'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('新增商品'),
       ),
-      body: new ListView(
+      body: ListView(
         children: <Widget>[
-          new Container(
+          Container(
             //外边距
             margin: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
             //内边距
             padding: const EdgeInsets.all(10.0),
-            child: new Form(
+            child: Form(
               key: _formKey,
-              child: new Column(
+              child: Column(
                 children: <Widget>[
-                  new TextFormField(
-                    onSaved: (val) => this._name = val,
+                  TextFormField(
+                    onSaved: (val) => _name = val,
                     validator: (val) =>
                         (val == null || val.isEmpty) ? "请输入商品名称" : null,
-                    decoration: new InputDecoration(
+                    decoration: const InputDecoration(
                       // border默认为UnderlineInputBorder
-                      border: new UnderlineInputBorder(),
+                      border: UnderlineInputBorder(),
                       labelText: '请输入商品名称',
                     ),
                   ),
-                  new TextFormField(
+                  TextFormField(
 //                    maxLengthEnforced: true,
                     maxLength: 5, //文本长度
-                    onSaved: (val) => this._color = val,
+                    onSaved: (val) => _color = val,
                     validator: (v) => (v == null || v.isEmpty) ? "请选择颜色" : null,
-                    decoration: new InputDecoration(
+                    decoration: InputDecoration(
 //                      设置是否有全部的边框
                       filled: true,
                       //填充颜色
                       fillColor: Colors.orangeAccent,
-                      border: new UnderlineInputBorder(
-                        borderRadius: new BorderRadius.circular(5.0),
+                      border: UnderlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
                         //貌似borderSide属性没作用
 //                        borderSide: new BorderSide(width: 10.0, color: Colors.green),
                       ),
 //                      hintText: '颜色',
                       //有了labelText就不需要hintText属性了
                       labelText: '请输入颜色',
-                      labelStyle: new TextStyle(color: Colors.white),
+                      labelStyle: const TextStyle(color: Colors.white),
                     ),
                   ),
-                  new TextFormField(
+                  TextFormField(
                     maxLength: 32,
-                    onSaved: (val) => this._config = val,
+                    onSaved: (val) => _config = val,
                     validator: (v) => (v == null || v.isEmpty) ? "请选择配置" : null,
-                    decoration: new InputDecoration(
-                      border: new OutlineInputBorder(),
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
                       labelText: '请输入配置',
                     ),
                   ),
-                  new MaterialButton(
-                    child: new Text(
+                  MaterialButton(
+                    child: const Text(
                       'Submit',
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white),
                     ),
                     onPressed: _onSubmit,
                     color: Theme.of(context).primaryColor,
@@ -103,8 +105,8 @@ class _FieldDemoState extends State<FieldDemo> {
       form.save();
       showDialog(
         context: context,
-        builder: (ctx) => new AlertDialog(
-              content: new Text('商品名称：$_name  \n 颜色：$_color \n 配置：$_config'),
+        builder: (ctx) => AlertDialog(
+              content: Text('商品名称：$_name  \n 颜色：$_color \n 配置：$_config'),
             ),
       );
     }

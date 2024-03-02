@@ -7,12 +7,14 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: ListViewDemo(),
+      home: const ListViewDemo(),
     ),
   );
 }
 
 class ListViewDemo extends StatelessWidget {
+  const ListViewDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +42,7 @@ class ListViewDemo extends StatelessWidget {
 //// 以下是可折叠展开的ListView的demo
 /////////////////////////////////////
 class EntryItem extends StatelessWidget {
-  const EntryItem(this.entry);
+  const EntryItem(this.entry, {Key? key}) : super(key: key);
 
   final Entry entry;
 

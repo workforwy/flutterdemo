@@ -7,13 +7,13 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: ListViewLongListDemo(),
+      home:  ListViewLongListDemo(),
     ),
   );
 }
 
 class ListViewLongListDemo extends StatelessWidget {
-  const ListViewLongListDemo({Key? key}) : super(key: key);
+   ListViewLongListDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ListViewLongListDemo extends StatelessWidget {
             }),
         title: const Text(
           'ListView.builder构建长列表',
-          style: const TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
       body: GestureDetector(
@@ -59,9 +59,9 @@ class ListViewLongListDemo extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          child: Text('${items[index]}'),
+          child: Text(items[index]),
         ),
-        Divider(height: 1.0, indent: 0.0, color: Theme.of(context).accentColor),
+        Divider(height: 1.0, indent: 0.0, color: Theme.of(context).colorScheme.secondary),
       ],
     );
   }

@@ -7,12 +7,14 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: ListViewCustomScrollViewDemo(),
+      home: const ListViewCustomScrollViewDemo(),
     ),
   );
 }
 
 class ListViewCustomScrollViewDemo extends StatelessWidget {
+  const ListViewCustomScrollViewDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,7 @@ class ListViewCustomScrollViewDemo extends StatelessWidget {
             }),
         title: const Text(
           'CustomScrollView创建一个列表',
-          style: const TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
       body: GestureDetector(

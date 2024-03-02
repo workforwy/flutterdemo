@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class SimpleDialogDemo extends StatefulWidget {
+  const SimpleDialogDemo({Key? key}) : super(key: key);
+
   @override
   _SimpleDialogDemoState createState() => _SimpleDialogDemoState();
 }
@@ -13,7 +15,7 @@ class _SimpleDialogDemoState extends State<SimpleDialogDemo> {
       appBar: AppBar(
         title: const Text(
           'SimpleDialogDemo',
-          style: const TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
       body: ListView(
@@ -51,7 +53,7 @@ Widget _buildListItemContent({var contents, required Color bgColor}) {
     alignment: Alignment.center,
     constraints: const BoxConstraints.expand(height: 40.0),
     decoration: BoxDecoration(
-      color: bgColor == null ? Colors.teal[300] : bgColor,
+      color: bgColor ?? Colors.teal[300],
       borderRadius: const BorderRadius.all(
         //让矩形四个角都变成圆角
         Radius.circular(8.0),
@@ -169,11 +171,11 @@ List<Widget> buildDialogItems(int type, BuildContext context) {
           context),
       showDialogItemsClick(
           const ListTile(
-            leading: const Icon(
+            leading: Icon(
               Icons.add,
               color: Colors.redAccent,
             ),
-            title: const Text(
+            title: Text(
               '添加',
               style: TextStyle(color: Colors.deepOrangeAccent),
             ),
@@ -182,11 +184,11 @@ List<Widget> buildDialogItems(int type, BuildContext context) {
           context),
       showDialogItemsClick(
           const ListTile(
-            leading: const Icon(
+            leading: Icon(
               Icons.mic,
               color: Colors.redAccent,
             ),
-            title: const Text(
+            title: Text(
               '录音',
               style: TextStyle(color: Colors.deepOrangeAccent),
             ),
@@ -195,11 +197,11 @@ List<Widget> buildDialogItems(int type, BuildContext context) {
           context),
       showDialogItemsClick(
           const ListTile(
-            leading: const Icon(
+            leading: Icon(
               Icons.mail,
               color: Colors.redAccent,
             ),
-            title: const Text(
+            title: Text(
               '邮件',
               style: TextStyle(color: Colors.deepOrangeAccent),
             ),
@@ -212,7 +214,7 @@ List<Widget> buildDialogItems(int type, BuildContext context) {
               Icons.search,
               color: Colors.redAccent,
             ),
-            title: const Text(
+            title: Text(
               '搜索',
               style: TextStyle(color: Colors.deepOrangeAccent),
             ),

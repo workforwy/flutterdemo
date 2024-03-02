@@ -4,6 +4,8 @@ class HomePage extends StatefulWidget {
 
   late final String title;
 
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   HomePageState createState() => HomePageState();
 }
@@ -30,11 +32,11 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             Text(
               'You have pushed the button this many times:',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ],
         ),
@@ -42,7 +44,7 @@ class HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add_alarm),
+        child: const Icon(Icons.add_alarm),
       ),
     );
   }

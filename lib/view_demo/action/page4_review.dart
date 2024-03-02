@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(const MaterialApp(
     title: '交互',
-    home: new Counter(),
+    home: Counter(),
   ));
 }
 
 class Counter extends StatefulWidget {
+  const Counter({Key? key}) : super(key: key);
+
   @override
-  _CounterState createState() => new _CounterState();
+  _CounterState createState() => _CounterState();
 }
 
 class _CounterState extends State<Counter> {
@@ -23,12 +25,12 @@ class _CounterState extends State<Counter> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('交互'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('交互'),
       ),
-      body: new CounterDiaplay(count: _count),
-      floatingActionButton: new CounterIncrementer(
+      body: CounterDiaplay(count: _count),
+      floatingActionButton: CounterIncrementer(
         onPressed: _increment,
       ),
     );
@@ -37,30 +39,30 @@ class _CounterState extends State<Counter> {
 
 // 简单的封装  计数显示
 class CounterDiaplay extends StatelessWidget {
-  CounterDiaplay({this.count});
+  const CounterDiaplay({Key? key, this.count}) : super(key: key);
 
   final int count;
 
   @override
   Widget build(BuildContext context) {
-    return new Center(
-      child: new Text('按钮点击 $count 次}'),
+    return Center(
+      child: Text('按钮点击 $count 次}'),
     );
   }
 }
 
 // 简单的封装  计数改变
 class CounterIncrementer extends StatelessWidget {
-  CounterIncrementer({this.onPressed});
+  const CounterIncrementer({Key? key, this.onPressed}) : super(key: key);
 
   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return new FloatingActionButton(
+    return FloatingActionButton(
       onPressed: onPressed,
       tooltip: '增加',
-      child: new Icon(Icons.add),
+      child: const Icon(Icons.add),
     );
   }
 }

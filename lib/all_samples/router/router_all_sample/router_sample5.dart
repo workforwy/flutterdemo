@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // 发送路由并接收返回的数据
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       title: 'Flutter发送路由并返回数据Demo',
       home: HomePage(),
     ),
@@ -16,21 +16,23 @@ class HomePage extends StatelessWidget {
   // 要发送出去的数据源
   final List<String> datas = ["橘子", "苹果", "香蕉", "柚子"];
 
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Flutter发送路由并返回数据Demo',
-          style: new TextStyle(fontSize: 15),
+          style: TextStyle(fontSize: 15),
         ),
       ),
-      body: new RaisedButton(
+      body: RaisedButton(
         color: Colors.teal,
         onPressed: () {
           _navigateAndDisplaySelection(context);
         },
-        child: Text('跳转到下一个页面'),
+        child: const Text('跳转到下一个页面'),
       ),
     );
   }
@@ -83,28 +85,28 @@ class HomePage extends StatelessWidget {
 class MyApp extends StatelessWidget {
   final List<String> data;
 
-  MyApp({Key key, @required this.data}) : super(key: key);
+  const MyApp({Key key, @required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     String tempData = "";
 
-    data.forEach((String data) {
+    for (var data in data) {
       tempData += data;
-    });
+    }
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
           "来自于页面A的数据：$tempData",
-          style: new TextStyle(fontSize: 15),
+          style: const TextStyle(fontSize: 15),
         ),
       ),
-      body: new RaisedButton(
+      body: RaisedButton(
         onPressed: () {
           Navigator.pop(context, 'Tips：页面B返回的数据');
         },
-        child: Text('点击返回并传递数据给页面A'),
+        child: const Text('点击返回并传递数据给页面A'),
       ),
     );
   }

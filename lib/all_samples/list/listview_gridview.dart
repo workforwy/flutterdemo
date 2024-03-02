@@ -7,12 +7,14 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: ListViewGridViewDemo(),
+      home: const ListViewGridViewDemo(),
     ),
   );
 }
 
 class ListViewGridViewDemo extends StatelessWidget {
+  const ListViewGridViewDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

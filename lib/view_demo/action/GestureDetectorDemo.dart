@@ -4,24 +4,26 @@ import 'package:flutter/material.dart';
 /// 这里主要是测试一下手势事件的执行顺序
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'ShouShiDemo',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: new ShouShiDemo(),
+      home: const ShouShiDemo(),
     ),
   );
 }
 
 class ShouShiDemo extends StatelessWidget {
+  const ShouShiDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('ShouShiDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('ShouShiDemo'),
       ),
-      body: new GestureDetector(
+      body: GestureDetector(
         //单击
         onTap: () {
           print('GestureDetector onTap =====》 单击');
@@ -64,17 +66,17 @@ class ShouShiDemo extends StatelessWidget {
 //        onScaleStart: ,
 //        onScaleUpdate: ,
 //        onScaleEnd: ,
-        child: new Container(
-          padding: new EdgeInsets.all(5.0),
-          margin: new EdgeInsets.all(5.0),
-          decoration: new BoxDecoration(
+        child: Container(
+          padding: const EdgeInsets.all(5.0),
+          margin: const EdgeInsets.all(5.0),
+          decoration: BoxDecoration(
             color: Colors.teal,
-            borderRadius: new BorderRadius.only(),
-            border: new Border.all(color: Colors.red),
+            borderRadius: const BorderRadius.only(),
+            border: Border.all(color: Colors.red),
           ),
           //InkWell水波纹带有效果，同时带有点击事件
-          child: new InkWell(
-            child: new Text('手势动画'),
+          child: InkWell(
+            child: const Text('手势动画'),
             onTap: () {
               print('InkWell  onTap ==》 单击');
             },

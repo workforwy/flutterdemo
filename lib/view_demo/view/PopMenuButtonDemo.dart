@@ -3,18 +3,20 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 /// TODO
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: 'PopMenuButtonDemo',
-    theme: new ThemeData(
+    theme: ThemeData(
       primarySwatch: Colors.blue, //设置全局主题
     ),
-    home: new PopMenuButtonDemo(),
+    home: const PopMenuButtonDemo(),
   ));
 }
 
 class PopMenuButtonDemo extends StatefulWidget {
+  const PopMenuButtonDemo({Key? key}) : super(key: key);
+
   @override
-  _PopMenuButtonDemoState createState() => new _PopMenuButtonDemoState();
+  _PopMenuButtonDemoState createState() => _PopMenuButtonDemoState();
 }
 
 class _PopMenuButtonDemoState extends State<PopMenuButtonDemo> {
@@ -22,20 +24,20 @@ class _PopMenuButtonDemoState extends State<PopMenuButtonDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('PopMenuButtonDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('PopMenuButtonDemo'),
         actions: <Widget>[
-          new PopupMenuButton(
+          PopupMenuButton(
             itemBuilder: (BuildContext context) => list(),
             tooltip: "提示",
             padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             onSelected: (String value) {
               setState(() {
-                _bodyStr = value == null ? null : value;
+                _bodyStr = value;
                 //弹吐司
                 Fluttertoast.showToast(
-                  msg: "点击了： ${value}",
+                  msg: "点击了： $value",
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.BOTTOM,
                 );
@@ -44,10 +46,10 @@ class _PopMenuButtonDemoState extends State<PopMenuButtonDemo> {
           )
         ],
       ),
-      body: new Center(
-        child: new Text(
+      body: Center(
+        child: Text(
           _bodyStr,
-          style: new TextStyle(
+          style: TextStyle(
             color: Colors.red[500],
             fontSize: 20.0,
           ),
@@ -59,8 +61,8 @@ class _PopMenuButtonDemoState extends State<PopMenuButtonDemo> {
 
 List<PopupMenuItem<String>> list() {
   List<PopupMenuItem<String>> list = <PopupMenuItem<String>>[
-    new PopupMenuItem<String>(value: '选项一', child: new Text('选项一')),
-    new PopupMenuItem<String>(value: '选项二', child: new Text('选项二')),
+    const PopupMenuItem<String>(value: '选项一', child: Text('选项一')),
+    const PopupMenuItem<String>(value: '选项二', child: Text('选项二')),
   ];
   return list;
 }

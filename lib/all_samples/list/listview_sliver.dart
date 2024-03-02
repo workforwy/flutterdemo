@@ -34,15 +34,15 @@ class ListViewSliverDemo extends StatelessWidget {
           // 标题
           title: const Text(
             '可折叠的appbar + listview',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 17.0,
             ),
           ),
           // 右边的按钮
-          actions: <Widget>[
-            const Icon(Icons.search),
-            const Icon(Icons.add),
-            const Icon(Icons.menu),
+          actions: const <Widget>[
+            Icon(Icons.search),
+            Icon(Icons.add),
+            Icon(Icons.menu),
           ],
           backgroundColor: Colors.lime,
           automaticallyImplyLeading: false,

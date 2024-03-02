@@ -7,35 +7,38 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MaterialApp(home: new BasicHeroAnimation()));
+  runApp(const MaterialApp(home: BasicHeroAnimation()));
 }
 
 class BasicHeroAnimation extends StatelessWidget {
+  const BasicHeroAnimation({Key? key}) : super(key: key);
+
+  @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         title: const Text('Basic Hero Animation'),
       ),
-      body: new Center(
-        child: new InkWell(
+      body: Center(
+        child: InkWell(
           onTap: () {
             Navigator.of(context).push(
-              new MaterialPageRoute<Null>(
+              MaterialPageRoute<void>(
                 builder: (BuildContext context) {
-                  return new Scaffold(
-                    appBar: new AppBar(
+                  return Scaffold(
+                    appBar: AppBar(
                       title: const Text('Flippers Page'),
                     ),
-                    body: new Container(
+                    body: Container(
                       padding: const EdgeInsets.all(8.0),
                       alignment: Alignment.topLeft,
                       // Use background color to emphasize that it's a new route.
                       color: Colors.lightBlueAccent,
-                      child: new Hero(
+                      child: Hero(
                         tag: 'flippers',
-                        child: new SizedBox(
+                        child: SizedBox(
                           width: 100.0,
-                          child: new Image.asset(
+                          child: Image.asset(
                             'images/top.png',
                           ),
                         ),
@@ -47,9 +50,9 @@ class BasicHeroAnimation extends StatelessWidget {
             );
           },
           // Main route
-          child: new Hero(
+          child: Hero(
             tag: 'flippers',
-            child: new Image.asset(
+            child: Image.asset(
               'images/top.png',
             ),
           ),

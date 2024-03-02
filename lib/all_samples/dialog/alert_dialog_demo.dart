@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'alert_dialog_demo.dart';
 import 'simple_dialog_demo.dart';
 import 'snackbar_demo.dart';
 
@@ -11,10 +10,10 @@ class AlertDialogDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = <Widget>[
-      buildClicks(buildContents('SnackBar的使用'), context, SnackBarDemo()),
+      buildClicks(buildContents('SnackBar的使用'), context, const SnackBarDemo()),
       buildClicks(
-          buildContents('SimpleDialog的使用'), context, SimpleDialogDemo()),
-      buildClicks(buildContents('AlertDialog的使用'), context, AlertDialogDemo()),
+          buildContents('SimpleDialog的使用'), context, const SimpleDialogDemo()),
+      buildClicks(buildContents('AlertDialog的使用'), context, const AlertDialogDemo()),
       //      buildClicks(buildContents('BottomSheet的使用'), context, new SnackBarDemo()),
       //      buildClicks(
       //          buildContents('ExpansionPanel的使用'), context, new SnackBarDemo()),
@@ -27,7 +26,7 @@ class AlertDialogDemo extends StatelessWidget {
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
-            }),x vx
+            }),
         title: const Text('各种弹窗&提示控件用法'),
       ),
       body: ListView(children: widgets),

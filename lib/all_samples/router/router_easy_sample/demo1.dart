@@ -7,12 +7,14 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: Demo1(),
+      home: const Demo1(),
     ),
   );
 }
 
 class Demo1 extends StatelessWidget {
+  const Demo1({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

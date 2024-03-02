@@ -7,10 +7,10 @@ class Product {
   final String name;
 }
 
-typedef void CartChangedCallback(Product p, bool inCart);
+typedef CartChangedCallback = void Function(Product p, bool inCart);
 
 class ShoppingListItem extends StatelessWidget {
-  ShoppingListItem({this.product, this.inCart, this.onCartChanged});
+  const ShoppingListItem({Key? key, this.product, this.inCart, this.onCartChanged}) : super(key: key);
 
   final Product product;
   final bool inCart;
@@ -28,13 +28,13 @@ class ShoppingListItem extends StatelessWidget {
   TextStyle _getTextStyle(BuildContext context, int type, int style) {
     if (!inCart) {
       //默认的状态
-      return new TextStyle(
+      return TextStyle(
         color: type == 0 ? Colors.white : Theme.of(context).primaryColor,
         fontSize: 20.0,
       );
     } else {
       //选中状态
-      return new TextStyle(
+      return TextStyle(
         color: type == 0 ? Colors.white : Colors.purpleAccent, //字体颜色
         decoration: style == 0 ? TextDecoration.lineThrough : null, //删除线
         decorationColor: style == 0 ? Colors.purple : null, //删除线颜色
@@ -45,22 +45,22 @@ class ShoppingListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new ListTile(
+    return ListTile(
       onTap: () {
         onCartChanged(product, !inCart);
         Fluttertoast.showToast(
-          msg: "点击了：" + "${product.name}",
+          msg: "点击了：" product.name,
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
         );
       },
-      leading: new CircleAvatar(
+      leading: CircleAvatar(
         //左边的圆形标识
         backgroundColor: _getColor(context), //背景颜色
-        child: new Text(product.name[0], //文字内容
+        child: Text(product.name[0], //文字内容
             style: _getTextStyle(context, 0, 1)), //文字格式
       ),
-      title: new Text(product.name, // 文字内容
+      title: Text(product.name, // 文字内容
           style: _getTextStyle(context, 1, 0)), //文字格式
     );
   }

@@ -56,7 +56,7 @@ LinearGradient DirectionStyle2(
   direction == Direction.firstDirection ? endX = endX : endX2;
   direction == Direction.firstDirection ? endY = endY : endY2;
 
-  var linearGradient = new LinearGradient(
+  var linearGradient = LinearGradient(
     //线性渐变
     begin: FractionalOffset(startX, startY),
     end: FractionalOffset(endX, endY),

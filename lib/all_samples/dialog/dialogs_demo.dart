@@ -11,10 +11,10 @@ class DialogWidgetsDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = <Widget>[
-      buildClicks(buildContents('SnackBar的使用'), context, SnackBarDemo()),
+      buildClicks(buildContents('SnackBar的使用'), context, const SnackBarDemo()),
       buildClicks(
-          buildContents('SimpleDialog的使用'), context, SimpleDialogDemo()),
-      buildClicks(buildContents('AlertDialog的使用'), context, AlertDialogDemo()),
+          buildContents('SimpleDialog的使用'), context, const SimpleDialogDemo()),
+      buildClicks(buildContents('AlertDialog的使用'), context, const AlertDialogDemo()),
 //      buildClicks(buildContents('BottomSheet的使用'), context,  SnackBarDemo()),
 //      buildClicks(
 //          buildContents('ExpansionPanel的使用'), context,  SnackBarDemo()),
@@ -23,12 +23,12 @@ class DialogWidgetsDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: Icon(Icons.keyboard_arrow_left),
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               // 返回上一个页面
               Navigator.of(context).pop();
             }),
-        title: Text('各种弹窗&提示控件用法'),
+        title: const Text('各种弹窗&提示控件用法'),
       ),
       body: ListView(children: widgets),
     );

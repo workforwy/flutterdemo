@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 /// 定位对齐demo
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: 'CenterDemo',
-    theme: new ThemeData(
+    theme: ThemeData(
       primarySwatch: Colors.blue, //设置全局主题
     ),
 //    home: new CenterDemo(),
 //    home: new AlignDemo(),
-    home: new PaddingDemo(),
+    home: const PaddingDemo(),
 //    home: new SizedBoxDemo(),
 //    home: new AspectRatioDemo(),
   ));
@@ -17,14 +17,16 @@ void main() {
 
 // 居中对齐
 class CenterDemo extends StatelessWidget {
+  const CenterDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('CenterDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('CenterDemo'),
       ),
-      body: new Center(
-        child: new Text('这是居中文字'),
+      body: const Center(
+        child: Text('这是居中文字'),
       ),
     );
   }
@@ -36,82 +38,84 @@ class CenterDemo extends StatelessWidget {
 /// bottomLeft 左下角     bottomCenter 底部中心  bottomRight 右下角
 /// centerLeft 左边缘中心 center 水平垂直居中     centerRight 右边缘中心
 class AlignDemo extends StatelessWidget {
+  const AlignDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('CenterDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('CenterDemo'),
       ),
-      body: new Stack(
+      body: Stack(
         children: <Widget>[
-          new Container(color: Colors.orange), //最底层的控件
-          new Align(
-            alignment: new FractionalOffset(0.0, 0.0),
-            child: new Image.asset(
+          Container(color: Colors.orange), //最底层的控件
+          Align(
+            alignment: const FractionalOffset(0.0, 0.0),
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
             ),
           ),
-          new Align(
+          Align(
             alignment: FractionalOffset.topCenter,
-            child: new Image.asset(
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
             ),
           ),
-          new Align(
+          Align(
             alignment: FractionalOffset.topRight,
-            child: new Image.asset(
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
             ),
           ),
-          new Align(
+          Align(
             alignment: FractionalOffset.centerLeft,
-            child: new Image.asset(
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
             ),
           ),
-          new Align(
+          Align(
             alignment: FractionalOffset.center,
-            child: new Image.asset(
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
             ),
           ),
-          new Align(
+          Align(
             alignment: FractionalOffset.centerRight,
-            child: new Image.asset(
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
             ),
           ),
-          new Align(
+          Align(
             alignment: FractionalOffset.bottomLeft,
-            child: new Image.asset(
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
             ),
           ),
-          new Align(
+          Align(
             alignment: FractionalOffset.bottomCenter,
-            child: new Image.asset(
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
             ),
           ),
-          new Align(
+          Align(
             alignment: FractionalOffset.bottomRight,
-            child: new Image.asset(
+            child: Image.asset(
               'images/demo.png',
               width: 150.0,
               height: 150.0,
@@ -127,20 +131,22 @@ class AlignDemo extends StatelessWidget {
 /// 注意：padding属性必须加上，否则会报错
 /// 源码里面有 @required 注解的表示必须要加上的属性
 class PaddingDemo extends StatelessWidget {
+  const PaddingDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('PaddingDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('PaddingDemo'),
       ),
-      body: new Padding(
+      body: Padding(
         padding: const EdgeInsets.all(50.0), //设置padding值
 //        child: new Image.asset(//使用图片填充
 //          'images/demo.png',
 //          width: 150.0,
 //          height: 150.0,
 //        ),
-        child: new Container(
+        child: Container(
           //使用容器填充
           color: Colors.orange,
         ),
@@ -153,18 +159,20 @@ class PaddingDemo extends StatelessWidget {
 /// 当SizedBox和其子控件都设置了宽高属性时，以SizedBox的宽高为准。
 /// 下例中的实际宽高为250
 class SizedBoxDemo extends StatelessWidget {
+  const SizedBoxDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('SizedBoxDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('SizedBoxDemo'),
       ),
-      body: new Container(
+      body: Container(
         color: Colors.orange,
-        child: new SizedBox(
+        child: SizedBox(
           width: 250.0,
           height: 250.0,
-          child: new Image.asset(
+          child: Image.asset(
             'images/demo.png',
             width: 50.0,
             height: 50.0,
@@ -179,17 +187,19 @@ class SizedBoxDemo extends StatelessWidget {
 /// SizedBox 和 AspectRatio不能同时给子孩子控件使用。
 /// 下例中的Image.asset的宽高属性是不起作用的
 class AspectRatioDemo extends StatelessWidget {
+  const AspectRatioDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('AspectRatioDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AspectRatioDemo'),
       ),
-      body: new Container(
+      body: Container(
         color: Colors.orange, //加一个外布局的背景色，看得清楚一些
-        child: new AspectRatio(
+        child: AspectRatio(
           aspectRatio: 5.0 / 3.0,
-          child: new Image.asset(
+          child: Image.asset(
             //图片的宽高属性不起作用
             'images/demo.png',
 //            width: 50.0,

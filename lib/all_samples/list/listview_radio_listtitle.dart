@@ -8,13 +8,15 @@ void main() {
         primarySwatch: Colors.blue, //设置全局主题
       ),
       //动态演示RadioListTile的切换
-      home: RadioListTileDemo(),
+      home: const RadioListTileDemo(),
     ),
   );
 }
 
 // RadioListTile的示范代码
 class RadioListTileDemo extends StatefulWidget {
+  const RadioListTileDemo({Key? key}) : super(key: key);
+
   @override
   _RadioListTileDemoState createState() => _RadioListTileDemoState();
 }
@@ -26,7 +28,7 @@ class _RadioListTileDemoState extends State<RadioListTileDemo> {
       appBar: AppBar(
         title: const Text(
           'ListView的RadioListTile的切换',
-          style: const TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
       body: items(),

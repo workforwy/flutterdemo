@@ -7,12 +7,14 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: ListViewListTileDemo(),
+      home: const ListViewListTileDemo(),
     ),
   );
 }
 
 class ListViewListTileDemo extends StatelessWidget {
+  const ListViewListTileDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,7 @@ class ListViewListTileDemo extends StatelessWidget {
             }),
         title: const Text(
           'ListTile以及子类的使用',
-          style: const TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
       body: GestureDetector(
@@ -57,11 +59,11 @@ class ListViewListTileDemo extends StatelessWidget {
         ),
         const ListTile(
           leading: Icon(Icons.photo_album),
-          title: const Text('相册'),
+          title: Text('相册'),
         ),
         const ListTile(
-          leading: const Icon(Icons.phone),
-          title: const Text('电话'),
+          leading: Icon(Icons.phone),
+          title: Text('电话'),
         ),
         // 单选框列表item
         CheckboxListTile(
@@ -93,9 +95,9 @@ class ListViewListTileDemo extends StatelessWidget {
           secondary: const Icon(Icons.account_circle),
         ),
         const AboutListTile(
-          icon: const Icon(Icons.panorama),
+          icon: Icon(Icons.panorama),
           //公司logo
-          applicationIcon: const FlutterLogo(),
+          applicationIcon: FlutterLogo(),
           //app名称
           applicationName: '关于我们',
           //app版本号

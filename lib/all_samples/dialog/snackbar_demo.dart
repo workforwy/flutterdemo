@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class SnackBarDemo extends StatefulWidget {
+  const SnackBarDemo({Key? key}) : super(key: key);
+
   @override
   _SnackBarDemoState createState() => _SnackBarDemoState();
 }
@@ -91,7 +93,7 @@ Widget buildContents(var text) {
         ),
         const BoxShadow(
           color: Colors.grey,
-          offset: const Offset(0.0, 6.0),
+          offset: Offset(0.0, 6.0),
           blurRadius: 8.0,
         ),
       ],

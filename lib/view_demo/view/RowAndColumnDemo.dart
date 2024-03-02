@@ -3,50 +3,52 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 /// TODO
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: '水平垂直布局',
-    theme: new ThemeData(
+    theme: ThemeData(
       primarySwatch: Colors.blue, //设置全局主题
     ),
-    home: new RowDemo(),
+    home: const RowDemo(),
   ));
 }
 
 class RowDemo extends StatelessWidget {
+  const RowDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('水平垂直布局'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('水平垂直布局'),
       ),
-      body: new Column(
+      body: Column(
         children: <Widget>[
-          new RaisedButton(
+          RaisedButton(
             onPressed: () {
               print('点击红色按钮事件');
               ShowToast('点击红色按钮事件');
             },
             color: const Color(0xffcc0000),
-            child: new Text('红色按钮'),
+            child: const Text('红色按钮'),
           ),
-          new Flexible(
+          Flexible(
             flex: 1,
-            child: new RaisedButton(
+            child: RaisedButton(
               onPressed: () {
                 print('点击黄色按钮事件');
                 ShowToast('点击黄色按钮事件');
               },
               color: const Color(0xfff1c232),
-              child: new Text('黄色按钮'),
+              child: const Text('黄色按钮'),
             ),
           ),
-          new RaisedButton(
+          RaisedButton(
             onPressed: () {
               print('点击粉色按钮事件');
               ShowToast('点击粉色按钮事件');
             },
             color: const Color(0xffea9999),
-            child: new Text('粉色按钮'),
+            child: const Text('粉色按钮'),
           ),
 //          new Expanded(
 //            flex: 3,

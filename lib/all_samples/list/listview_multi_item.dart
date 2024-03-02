@@ -7,7 +7,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: ListViewMultiItemDemo(),
+      home: const ListViewMultiItemDemo(),
     ),
   );
 }
@@ -23,13 +23,15 @@ List<ListItem> items = List<ListItem>.generate(
 );
 
 class ListViewMultiItemDemo extends StatelessWidget {
+  const ListViewMultiItemDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
           '多种类型item的ListView的demo',
-          style: const TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
       body: buildListItems(),
@@ -58,6 +60,7 @@ class ListViewMultiItemDemo extends StatelessWidget {
           ),
         );
       }
+      return null;
     });
   }
 }

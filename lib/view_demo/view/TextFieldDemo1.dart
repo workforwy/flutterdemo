@@ -1,55 +1,59 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'TextFieldDemo',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //蓝色主题
       ),
       //主要内容是什么。。。
-      home: new TextFieldDemo(),
+      home: const TextFieldDemo(),
     );
   }
 }
 
 //TextField基本使用
 class TextFieldDemo extends StatelessWidget {
+  const TextFieldDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('TextFieldDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('TextFieldDemo'),
         centerTitle: true,
       ),
-      body: new Container(
-        padding: new EdgeInsets.all(5.0),
-        child: new ListView(
+      body: Container(
+        padding: const EdgeInsets.all(5.0),
+        child: ListView(
           children: <Widget>[
-            new Text(
+            const Text(
               '请输入用户名1',
-              style: new TextStyle(fontSize: 15.0, color: Colors.teal),
+              style: TextStyle(fontSize: 15.0, color: Colors.teal),
             ),
             buildTextField(maxLength: 30),
-            new Text(
+            const Text(
               '请输入密码1',
-              style: new TextStyle(fontSize: 15.0, color: Colors.teal),
+              style: TextStyle(fontSize: 15.0, color: Colors.teal),
             ),
             buildTextField(
                 obscureText: true, maxLength: 16, maxLengthEnforced: true),
-            new Text(
+            const Text(
               '请输入用户名2',
-              style: new TextStyle(fontSize: 15.0, color: Colors.teal),
+              style: TextStyle(fontSize: 15.0, color: Colors.teal),
             ),
             buildTextField(),
-            new Text(
+            const Text(
               '请输入密码2',
-              style: new TextStyle(fontSize: 15.0, color: Colors.teal),
+              style: TextStyle(fontSize: 15.0, color: Colors.teal),
             ),
             buildTextField(
                 obscureText: true, maxLength: 16, maxLengthEnforced: false),
@@ -62,13 +66,13 @@ class TextFieldDemo extends StatelessWidget {
 
 Widget buildTextField(
     {bool obscureText = false, int maxLength, bool maxLengthEnforced = false}) {
-  return new TextField(
+  return TextField(
 //    decoration: new InputDecoration(),
 //    focusNode:,
 //    处理交互操作的
 //    controller:,
 //    keyboardType: TextInputType.text,
-    style: new TextStyle(color: Colors.teal),
+    style: const TextStyle(color: Colors.teal),
     textAlign: TextAlign.start,
     autofocus: true,
     //是否加黑点隐藏输入字符 false为显示所有字符 true隐藏字符

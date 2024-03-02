@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: 'ProgressDemo',
-    theme: new ThemeData(
+    theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: new ProgressDemo(),
+    home: const ProgressDemo(),
   ));
 }
 
 class ProgressDemo extends StatefulWidget {
+  const ProgressDemo({Key? key}) : super(key: key);
+
   @override
   ProgressDemoState createState() {
-    return new ProgressDemoState(
+    return ProgressDemoState(
         maximumEmergy: 100,
         maximumHunger: 100,
         maximumMood: 100,
@@ -51,10 +53,10 @@ class ProgressDemoState extends State<ProgressDemo> {
 
   // 获取进度条描述文本
   Align _getNameText(BuildContext context, String text) {
-    return new Align(
+    return Align(
         alignment: FractionalOffset.topLeft,
-        child: new Text(text,
-            style: new TextStyle(
+        child: Text(text,
+            style: const TextStyle(
               fontSize: 15.0,
               color: Colors.red,
               height: 1.5,
@@ -63,20 +65,20 @@ class ProgressDemoState extends State<ProgressDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('ProgressDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('ProgressDemo'),
       ),
-      body: new Container(
+      body: Container(
         margin: const EdgeInsets.fromLTRB(17.0, 0.0, 17.0, 10.0),
-        child: new Column(
+        child: Column(
           children: <Widget>[
             _getNameText(context, '能量（$currentEmergy/$maximumEmergy）'),
-            new LinearProgressIndicator(value: currentEmergy / maximumEmergy),
+            LinearProgressIndicator(value: currentEmergy / maximumEmergy),
             _getNameText(context, '饥饿（$currentHunger/$maximumHunger）'),
-            new LinearProgressIndicator(value: currentHunger / maximumHunger),
+            LinearProgressIndicator(value: currentHunger / maximumHunger),
             _getNameText(context, '心情（$currentMood/$maximumMood）'),
-            new LinearProgressIndicator(value: currentMood / maximumMood),
+            LinearProgressIndicator(value: currentMood / maximumMood),
           ],
         ),
       ),

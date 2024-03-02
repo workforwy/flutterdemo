@@ -23,10 +23,10 @@ class RouterDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = <Widget>[
-      buildClicks(buildContents('按钮1'), context, Demo1()),
-      buildClicks(buildContents('按钮2'), context, Demo2()),
-      buildClicks(buildContents('按钮3'), context, Demo3()),
-      buildClicks(buildContents('按钮4'), context, Demo4()),
+      buildClicks(buildContents('按钮1'), context, const Demo1()),
+      buildClicks(buildContents('按钮2'), context, const Demo2()),
+      buildClicks(buildContents('按钮3'), context, const Demo3()),
+      buildClicks(buildContents('按钮4'), context, const Demo4()),
     ];
 
     return Scaffold(

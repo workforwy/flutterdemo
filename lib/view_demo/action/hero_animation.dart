@@ -8,34 +8,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
-  runApp(new MaterialApp(home: new HeroAnimation()));
+  runApp(const MaterialApp(home: HeroAnimation()));
 }
 
 class HeroAnimation extends StatelessWidget {
+  const HeroAnimation({Key? key}) : super(key: key);
+
+  @override
   Widget build(BuildContext context) {
     timeDilation = 3.0; // 1.0 means normal animation speed.
 
-    return new Scaffold(
-      appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         title: const Text('Basic Hero Animation'),
       ),
-      body: new Center(
-        child: new PhotoHero(
+      body: Center(
+        child: PhotoHero(
           photo: 'images/top.png',
           width: 300.0,
           onTap: () {
             Navigator.of(context).push(
-              new MaterialPageRoute<Null>(builder: (BuildContext context) {
-                return new Scaffold(
-                  appBar: new AppBar(
+              MaterialPageRoute<void>(builder: (BuildContext context) {
+                return Scaffold(
+                  appBar: AppBar(
                     title: const Text('Flippers Page'),
                   ),
-                  body: new Container(
+                  body: Container(
                     // Set background to blue to emphasize that it's a new route.
                     color: Colors.lightBlue,
                     padding: const EdgeInsets.all(16.0),
                     alignment: Alignment.center,
-                    child: new PhotoHero(
+                    child: PhotoHero(
                       photo: 'images/top.png',
                       width: 100.0,
                       onTap: () {
@@ -61,16 +64,17 @@ class PhotoHero extends StatelessWidget {
   final VoidCallback onTap;
   final double width;
 
+  @override
   Widget build(BuildContext context) {
-    return new SizedBox(
+    return SizedBox(
       width: width,
-      child: new Hero(
+      child: Hero(
         tag: photo,
-        child: new Material(
+        child: Material(
           color: Colors.transparent,
-          child: new InkWell(
+          child: InkWell(
             onTap: onTap,
-            child: new Image.asset(
+            child: Image.asset(
               photo,
               fit: BoxFit.contain,
             ),

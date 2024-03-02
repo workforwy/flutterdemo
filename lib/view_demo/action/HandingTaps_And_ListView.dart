@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// 侧滑删除demo
@@ -17,17 +16,17 @@ void main() {
 class MyApp extends StatelessWidget {
   final List<String> items;
 
-  MyApp({Key key, @required this.items}) : super(key: key);
+  const MyApp({Key key, @required this.items}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final title = 'Dismissing Items';
+    const title = 'Dismissing Items';
 
     return MaterialApp(
       title: title,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: const Text(title),
         ),
         body: buildItem(),
       ),
@@ -53,13 +52,13 @@ class MyApp extends StatelessWidget {
         // 从右到左滑动
         if (direction == DismissDirection.endToStart) {
           items.removeAt(index);
-          var snackBar1 = new SnackBar(
+          var snackBar1 = SnackBar(
             content: Text("$item 被删除了"),
           );
           Scaffold.of(context).showSnackBar(snackBar1);
           // 从左到右滑动
         } else if (direction == DismissDirection.startToEnd) {
-          var snackBar2 = new SnackBar(
+          var snackBar2 = const SnackBar(
             content: Text("从左到右滑动删除"),
           );
           Scaffold.of(context).showSnackBar(snackBar2);
@@ -69,8 +68,8 @@ class MyApp extends StatelessWidget {
       background: Container(
         color: Colors.red,
 //        padding: new EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-        padding: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
-        child: new Text(
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
+        child: const Text(
           '删除',
           textDirection: TextDirection.rtl,
         ),

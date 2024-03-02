@@ -7,12 +7,14 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: ListViewMultiLevelDemo(),
+      home: const ListViewMultiLevelDemo(),
     ),
   );
 }
 
 class ListViewMultiLevelDemo extends StatelessWidget {
+  const ListViewMultiLevelDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +51,7 @@ class ListViewMultiLevelDemo extends StatelessWidget {
 //// 以下是可折叠展开的多级列表
 /////////////////////////////////////
 class EntryItem extends StatelessWidget {
-  const EntryItem(this.entry);
+  const EntryItem(this.entry, {Key? key}) : super(key: key);
 
   final Entry entry;
 

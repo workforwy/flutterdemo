@@ -1,8 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'FRouter.dart';
 
-void main() => runApp(MainPage());
+void main() => runApp(const MainPage());
 
 // 使用示例代码
 class MainPage extends StatefulWidget {
@@ -21,12 +20,12 @@ class MainPageState extends State<MainPage> {
       isShowAppBar: true,
       routes: {
         // 不传递数据
-        '/pageone': (builder) => PageOne(),
+        '/pageone': (builder) => const PageOne(),
         // 传递数据给PageTwo这个页面
         '/pagetwo': (builder) => PageTwo('数据2'),
         '/pagethree': (builder) => PageThree('数据3'),
       },
-      appBarTitle: Text('Hello World'),
+      appBarTitle: const Text('Hello World'),
       child: RaisedButton(
         onPressed: () {
           // 命名路由
@@ -34,25 +33,27 @@ class MainPageState extends State<MainPage> {
           // 发送路由到新页面
           // FRouter.sendRouterPage(context, PageOne('data'));
         },
-        child: Text('点击进行跳转'),
+        child: const Text('点击进行跳转'),
       ),
     );
   }
 }
 
 class PageOne extends StatelessWidget {
+  const PageOne({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     // 非首页 isFirstPage: false, 默认就是非首页
     return FRouter(
       isShowAppBar: true,
-      appBarTitle: Text('nodata'),
+      appBarTitle: const Text('nodata'),
       child: RaisedButton(
         onPressed: () {
           // 返回到上个页面
           FRouter.backPageRouter(context);
         },
-        child: Text('点击进行跳转'),
+        child: const Text('点击进行跳转'),
       ),
     );
   }
@@ -61,19 +62,19 @@ class PageOne extends StatelessWidget {
 class PageTwo extends StatelessWidget {
   String data;
 
-  PageTwo(this.data);
+  PageTwo(this.data, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FRouter(
       isShowAppBar: true,
-      appBarTitle: Text('PageTwo'),
+      appBarTitle: const Text('PageTwo'),
       child: RaisedButton(
         onPressed: () {
           // 返回数据给上个页面
           FRouter.backPageRouter(context);
         },
-        child: Text('点击进行跳转'),
+        child: const Text('点击进行跳转'),
       ),
     );
   }
@@ -82,7 +83,7 @@ class PageTwo extends StatelessWidget {
 class PageThree extends StatelessWidget {
   String data;
 
-  PageThree(this.data);
+  PageThree(this.data, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +94,7 @@ class PageThree extends StatelessWidget {
         onPressed: () {
           FRouter.backPageRouter(context);
         },
-        child: Text('点击进行跳转'),
+        child: const Text('点击进行跳转'),
       ),
     );
   }

@@ -6,7 +6,6 @@
  * @FilePath: /FlutterDemo/lib/views/MyPage.dart
  * @Description: 描述
  */
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyPage extends StatelessWidget {
@@ -23,7 +22,7 @@ class MyPage extends StatelessWidget {
           title: const Text('尾页'),
         ),
         body: const Center(
-          child: const Text('我是尾页123'),
+          child: Text('我是尾页123'),
         ),
       ),
     );

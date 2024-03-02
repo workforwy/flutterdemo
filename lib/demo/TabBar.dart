@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: 'TabBarDemo',
-    theme: new ThemeData(
+    theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: new TabBarDemo(),
+    home: const TabBarDemo(),
   ));
 }
 
 class TabBarDemo extends StatefulWidget {
+  const TabBarDemo({Key? key}) : super(key: key);
+
   @override
-  _TabBarDemoState createState() => new _TabBarDemoState();
+  _TabBarDemoState createState() => _TabBarDemoState();
 }
 
 // 继承SingleTickerProviderStateMixin，提供单个Ticker（每个动画帧调用它的回调一次）
@@ -32,7 +34,7 @@ class _TabBarDemoState extends State<TabBarDemo>
 
     /// 创建一个对象，用于管理TabBar和TabBarView所需的状态
     /// length：选项卡的总数，存储所有页面的列表中的元素个数
-    _controller = new TabController(
+    _controller = TabController(
       vsync: this,
       length: _allPages.length,
     );
@@ -55,31 +57,31 @@ class _TabBarDemoState extends State<TabBarDemo>
   @override
   Widget build(BuildContext context) {
     // 获取当前主题的控件前景色
-    final Color iconColor = Theme.of(context).accentColor;
+    final Color iconColor = Theme.of(context).colorScheme.secondary;
 
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('可滚动的导航栏'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('可滚动的导航栏'),
         actions: <Widget>[
-          new PopupMenuButton<TabsDemoStyle>(
+          PopupMenuButton<TabsDemoStyle>(
               onSelected: changeDemoStyle,
               itemBuilder: (BuildContext context) =>
                   <PopupMenuItem<TabsDemoStyle>>[
-                    new PopupMenuItem<TabsDemoStyle>(
+                    const PopupMenuItem<TabsDemoStyle>(
                       value: TabsDemoStyle.iconsAndText,
-                      child: new Text('图标和文本'),
+                      child: Text('图标和文本'),
                     ),
-                    new PopupMenuItem<TabsDemoStyle>(
+                    const PopupMenuItem<TabsDemoStyle>(
                       value: TabsDemoStyle.iconsOnly,
-                      child: new Text('仅图标'),
+                      child: Text('仅图标'),
                     ),
-                    new PopupMenuItem<TabsDemoStyle>(
+                    const PopupMenuItem<TabsDemoStyle>(
                       value: TabsDemoStyle.textOnly,
-                      child: new Text('仅文本'),
+                      child: Text('仅文本'),
                     ),
                   ]),
         ],
-        bottom: new TabBar(
+        bottom: TabBar(
           // 控件的选择和动画状态
           controller: _controller,
           // 标签栏是否可以水平滚动
@@ -88,33 +90,33 @@ class _TabBarDemoState extends State<TabBarDemo>
           tabs: _allPages.map((_Page page) {
             switch (_demoStyle) {
               case TabsDemoStyle.iconsAndText:
-                return new Tab(
+                return Tab(
                   text: page.text,
-                  icon: new Icon(page.icon),
+                  icon: Icon(page.icon),
                 );
               case TabsDemoStyle.iconsOnly:
-                return new Tab(
-                  icon: new Icon(page.icon),
+                return Tab(
+                  icon: Icon(page.icon),
                 );
               case TabsDemoStyle.textOnly:
-                return new Tab(text: page.text);
+                return Tab(text: page.text);
             }
           }).toList(),
         ),
       ),
-      body: new TabBarView(
+      body: TabBarView(
         // 控件的选择和动画状态
         controller: _controller,
         // 每个标签一个控件
         children: _allPages.map(
           (_Page page) {
-            return new Container(
-              key: new ObjectKey(page.icon),
+            return Container(
+              key: ObjectKey(page.icon),
               padding: const EdgeInsets.all(12.0),
               // 质感设计卡片
-              child: new Card(
-                child: new Center(
-                  child: new Icon(
+              child: Card(
+                child: Center(
+                  child: Icon(
                     page.icon,
                     color: iconColor,
                     size: 128.0,
@@ -148,10 +150,10 @@ class _Page {
 
 // 存储所有页面的列表数据源
 final List<_Page> _allPages = <_Page>[
-  new _Page(icon: Icons.event, text: 'EVENT'),
-  new _Page(icon: Icons.home, text: 'HOME'),
-  new _Page(icon: Icons.android, text: 'ANDROID'),
-  new _Page(icon: Icons.alarm, text: 'ALARM'),
-  new _Page(icon: Icons.face, text: 'FACE'),
-  new _Page(icon: Icons.language, text: 'LANGUAGE'),
+  _Page(icon: Icons.event, text: 'EVENT'),
+  _Page(icon: Icons.home, text: 'HOME'),
+  _Page(icon: Icons.android, text: 'ANDROID'),
+  _Page(icon: Icons.alarm, text: 'ALARM'),
+  _Page(icon: Icons.face, text: 'FACE'),
+  _Page(icon: Icons.language, text: 'LANGUAGE'),
 ];

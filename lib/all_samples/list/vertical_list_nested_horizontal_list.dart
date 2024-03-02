@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 // 垂直listview嵌套水平的listview
 class ListViewNestedDemo extends StatelessWidget {
+  const ListViewNestedDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,12 +15,14 @@ class ListViewNestedDemo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ListViewNested(),
+      home: const ListViewNested(),
     );
   }
 }
 
 class ListViewNested extends StatelessWidget {
+  const ListViewNested({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +35,7 @@ class ListViewNested extends StatelessWidget {
             }),
         title: const Text(
           '垂直listview嵌套水平的listview Demo',
-          style: const TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0),
         ),
       ),
     )
@@ -43,7 +47,7 @@ class ListViewNested extends StatelessWidget {
     (
     )
     ,
-    );
+    )
   }
 
   // ListView -> SizedBox -> ListView -> 然后就是具体的组件
@@ -55,17 +59,17 @@ class ListViewNested extends StatelessWidget {
           child: ListView(
             // 设置滑动方向是水平方向
             scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              const FlutterLogo(colors: Colors.pink, size: 100),
-              const FlutterLogo(colors: Colors.teal, size: 100),
-              const FlutterLogo(colors: Colors.brown, size: 100),
-              const FlutterLogo(colors: Colors.lightBlue, size: 100),
-              const FlutterLogo(colors: Colors.green, size: 100),
-              const FlutterLogo(colors: Colors.pink, size: 100),
-              const FlutterLogo(colors: Colors.teal, size: 100),
-              const FlutterLogo(colors: Colors.brown, size: 100),
-              const FlutterLogo(colors: Colors.lightBlue, size: 100),
-              const FlutterLogo(colors: Colors.green, size: 100),
+            children: const <Widget>[
+              FlutterLogo(colors: Colors.pink, size: 100),
+              FlutterLogo(colors: Colors.teal, size: 100),
+              FlutterLogo(colors: Colors.brown, size: 100),
+              FlutterLogo(colors: Colors.lightBlue, size: 100),
+              FlutterLogo(colors: Colors.green, size: 100),
+              FlutterLogo(colors: Colors.pink, size: 100),
+              FlutterLogo(colors: Colors.teal, size: 100),
+              FlutterLogo(colors: Colors.brown, size: 100),
+              FlutterLogo(colors: Colors.lightBlue, size: 100),
+              FlutterLogo(colors: Colors.green, size: 100),
             ],
           ),
         ),
@@ -88,7 +92,7 @@ class ListViewNested extends StatelessWidget {
   Widget buildListView2() {
     // 纵向滑动的listview
     return ListView(
-      children: [
+      children: const [
         SizedBox(
           height: 100.0,
           child: SingleChildScrollView(
@@ -96,30 +100,30 @@ class ListViewNested extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: <Widget>[
-                const FlutterLogo(colors: Colors.pink, size: 100),
-                const FlutterLogo(colors: Colors.teal, size: 100),
-                const FlutterLogo(colors: Colors.brown, size: 100),
-                const FlutterLogo(colors: Colors.lightBlue, size: 100),
-                const FlutterLogo(colors: Colors.green, size: 100),
-                const FlutterLogo(colors: Colors.pink, size: 100),
-                const FlutterLogo(colors: Colors.teal, size: 100),
-                const FlutterLogo(colors: Colors.brown, size: 100),
-                const FlutterLogo(colors: Colors.lightBlue, size: 100),
-                const FlutterLogo(colors: Colors.green, size: 100),
+                FlutterLogo(colors: Colors.pink, size: 100),
+                FlutterLogo(colors: Colors.teal, size: 100),
+                FlutterLogo(colors: Colors.brown, size: 100),
+                FlutterLogo(colors: Colors.lightBlue, size: 100),
+                FlutterLogo(colors: Colors.green, size: 100),
+                FlutterLogo(colors: Colors.pink, size: 100),
+                FlutterLogo(colors: Colors.teal, size: 100),
+                FlutterLogo(colors: Colors.brown, size: 100),
+                FlutterLogo(colors: Colors.lightBlue, size: 100),
+                FlutterLogo(colors: Colors.green, size: 100),
               ],
             ),
           ),
         ),
-        const FlutterLogo(colors: Colors.pink, size: 100),
-        const FlutterLogo(colors: Colors.teal, size: 100),
-        const FlutterLogo(colors: Colors.brown, size: 100),
-        const FlutterLogo(colors: Colors.lightBlue, size: 100),
-        const FlutterLogo(colors: Colors.green, size: 100),
-        const FlutterLogo(colors: Colors.pink, size: 100),
-        const FlutterLogo(colors: Colors.teal, size: 100),
-        const FlutterLogo(colors: Colors.brown, size: 100),
-        const FlutterLogo(colors: Colors.lightBlue, size: 100),
-        const FlutterLogo(colors: Colors.green, size: 100),
+        FlutterLogo(colors: Colors.pink, size: 100),
+        FlutterLogo(colors: Colors.teal, size: 100),
+        FlutterLogo(colors: Colors.brown, size: 100),
+        FlutterLogo(colors: Colors.lightBlue, size: 100),
+        FlutterLogo(colors: Colors.green, size: 100),
+        FlutterLogo(colors: Colors.pink, size: 100),
+        FlutterLogo(colors: Colors.teal, size: 100),
+        FlutterLogo(colors: Colors.brown, size: 100),
+        FlutterLogo(colors: Colors.lightBlue, size: 100),
+        FlutterLogo(colors: Colors.green, size: 100),
       ],
     );
   }

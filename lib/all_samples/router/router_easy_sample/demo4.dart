@@ -2,32 +2,34 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'Demo4',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: new Demo4(),
+      home: const Demo4(),
     ),
   );
 }
 
 class Demo4 extends StatelessWidget {
+  const Demo4({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-        leading: new IconButton(
-            icon: new Icon(Icons.keyboard_arrow_left),
+        leading: IconButton(
+            icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
               print('返回首页');
               Navigator.of(context).pop();
             }),
-        title: new Text('Demo4'),
+        title: const Text('Demo4'),
       ),
-      body: new Center(
-        child: new Text('hello world  4'),
+      body: const Center(
+        child: Text('hello world  4'),
       ),
     );
   }

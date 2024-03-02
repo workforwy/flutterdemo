@@ -13,7 +13,18 @@ import 'listview_radio_listtitle.dart';
 import 'listview_simple.dart';
 import 'listview_sliver.dart';
 import 'sliver_vs_grid.dart';
-import 'vertical_list_nested_horizontal_list.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      title: 'CustomScrollView创建一个列表',
+      theme: ThemeData(
+        primarySwatch: Colors.blue, //设置全局主题
+      ),
+      home: const ListViewDemos(),
+    ),
+  );
+}
 
 class ListViewDemos extends StatelessWidget {
   const ListViewDemos({Key? key}) : super(key: key);
@@ -22,28 +33,28 @@ class ListViewDemos extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> widgets = <Widget>[
       buildClicks(
-          buildContents('简单ListViewDemo'), context, ListViewSimpleDemo()),
+          buildContents('简单ListViewDemo'), context, const ListViewSimpleDemo()),
       buildClicks(
-          buildContents('ListView带分割线'), context, ListViewDividerDemo()),
+          buildContents('ListView带分割线'), context, const ListViewDividerDemo()),
       buildClicks(buildContents('ListView.builder构建长列表'), context,
-          ListViewLongListDemo()),
+           ListViewLongListDemo()),
       buildClicks(
-          buildContents('横向ListView'), context, ListViewHorizontalDemo()),
+          buildContents('横向ListView'), context, const ListViewHorizontalDemo()),
       buildClicks(
-          buildContents('ListTile的使用'), context, ListViewListTileDemo()),
+          buildContents('ListTile的使用'), context, const ListViewListTileDemo()),
       buildClicks(buildContents('ListView的RadioListTile的切换'), context,
-          RadioListTileDemo()),
+          const RadioListTileDemo()),
       buildClicks(buildContents('使用CustomScrollView创建列表'), context,
-          ListViewCustomScrollViewDemo()),
+          const ListViewCustomScrollViewDemo()),
       buildClicks(
-          buildContents('创建GridView列表'), context, ListViewGridViewDemo()),
+          buildContents('创建GridView列表'), context, const ListViewGridViewDemo()),
       buildClicks(
-          buildContents('可折叠的AppBar+ListView'), context, ListViewSliverDemo()),
+          buildContents('可折叠的AppBar+ListView'), context, const ListViewSliverDemo()),
       buildClicks(
-          buildContents('多条目的ListView的demo'), context, ListViewMultiItemDemo()),
-      buildClicks(buildContents('多级列表Demo'), context, ListViewMultiLevelDemo()),
+          buildContents('多条目的ListView的demo'), context, const ListViewMultiItemDemo()),
+      buildClicks(buildContents('多级列表Demo'), context, const ListViewMultiLevelDemo()),
       buildClicks(buildContents(' SliverGrid 和 GridView 的对比'), context,
-          SliverGridVSGridView()),
+          const SliverGridVSGridView()),
       // buildClicks(buildContents('垂直listview嵌套水平的listview'), context,
       //     new ListViewNestedDemo()),
       const Text(''),

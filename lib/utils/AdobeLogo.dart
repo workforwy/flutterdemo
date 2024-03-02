@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AdobeLogo extends StatelessWidget {
+  const AdobeLogo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -8,13 +10,13 @@ class AdobeLogo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter 打造 Adobe 全家桶'),
+      home: const MyHomePage(title: 'Flutter 打造 Adobe 全家桶'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -33,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       String text, Color textColor, Color borderColor, Color bgColor,
       {bool showRectRadis = false}) {
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Container(
         decoration: BoxDecoration(
           color: bgColor,

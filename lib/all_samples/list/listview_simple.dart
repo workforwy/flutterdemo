@@ -6,11 +6,13 @@ void main() {
     theme: ThemeData(
       primarySwatch: Colors.blue, //设置全局主题
     ),
-    home: ListViewSimpleDemo(),
+    home: const ListViewSimpleDemo(),
   ));
 }
 
 class ListViewSimpleDemo extends StatelessWidget {
+  const ListViewSimpleDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +23,9 @@ class ListViewSimpleDemo extends StatelessWidget {
         ),
       ),
       body: ListView(
-        children: <Widget>[
-          const Center(
-            child: const Text(
+        children: const <Widget>[
+          Center(
+            child: Text(
               '\nListView Introduction',
               style: TextStyle(
                 fontFamily: 'serif',
@@ -31,10 +33,10 @@ class ListViewSimpleDemo extends StatelessWidget {
               ),
             ),
           ),
-          const Center(
+          Center(
               child: Text(
             '这是文字内容，看看效果如何？\n ListView is the most commonly used scrolling widget.It displays its children one after another in the scroll direction.In the cross axis, the children are required to fill the ListView.If non-null, the itemExtent forces the children to have the given extent in the scroll direction. Specifying an itemExtent is more efficient than letting the children determine their own extent because the scrolling machinery can make use of the foreknowledge of the children\'s extent to save work, for example when the scroll position changes drastically.',
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: 'Monospace',
               fontSize: 23.0,
             ),

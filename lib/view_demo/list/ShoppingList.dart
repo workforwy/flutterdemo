@@ -4,51 +4,51 @@ import 'ShoppingListItem.dart';
 /// ListView 购物清单 demo
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'Flutter教程',
-      home: new ShoppingList(products: _kProducts),
+      home: ShoppingList(products: _kProducts),
     ),
   );
 }
 
 // 创建Products集合
 final List<Product> _kProducts = <Product>[
-  new Product(name: '番茄'),
-  new Product(name: '辣椒'),
-  new Product(name: '茄子'),
-  new Product(name: '芥蓝'),
-  new Product(name: '黄瓜'),
-  new Product(name: '白菜'),
-  new Product(name: '西蓝花'),
-  new Product(name: '韭菜'),
-  new Product(name: '莲藕'),
-  new Product(name: '西芹'),
-  new Product(name: '土豆'),
-  new Product(name: '冬瓜'),
-  new Product(name: '胡瓜'),
-  new Product(name: '豇豆'),
-  new Product(name: '四季豆'),
-  new Product(name: '红萝卜'),
-  new Product(name: '白萝卜'),
-  new Product(name: '胡萝卜'),
-  new Product(name: '豆腐'),
-  new Product(name: '山药'),
-  new Product(name: '洋葱'),
-  new Product(name: '豆芽'),
-  new Product(name: '金针菇'),
-  new Product(name: '香菇'),
+  const Product(name: '番茄'),
+  const Product(name: '辣椒'),
+  const Product(name: '茄子'),
+  const Product(name: '芥蓝'),
+  const Product(name: '黄瓜'),
+  const Product(name: '白菜'),
+  const Product(name: '西蓝花'),
+  const Product(name: '韭菜'),
+  const Product(name: '莲藕'),
+  const Product(name: '西芹'),
+  const Product(name: '土豆'),
+  const Product(name: '冬瓜'),
+  const Product(name: '胡瓜'),
+  const Product(name: '豇豆'),
+  const Product(name: '四季豆'),
+  const Product(name: '红萝卜'),
+  const Product(name: '白萝卜'),
+  const Product(name: '胡萝卜'),
+  const Product(name: '豆腐'),
+  const Product(name: '山药'),
+  const Product(name: '洋葱'),
+  const Product(name: '豆芽'),
+  const Product(name: '金针菇'),
+  const Product(name: '香菇'),
 ];
 
 class ShoppingList extends StatefulWidget {
-  ShoppingList({Key key, this.products}) : super(key: key);
+  const ShoppingList({Key key, this.products}) : super(key: key);
   final List<Product> products;
 
   @override
-  _ShoppingListState createState() => new _ShoppingListState();
+  _ShoppingListState createState() => _ShoppingListState();
 }
 
 class _ShoppingListState extends State<ShoppingList> {
-  Set<Product> _shoppingCart = new Set<Product>();
+  final Set<Product> _shoppingCart = <Product>{};
 
   void _handleCartChanged(Product product, bool inCart) {
     setState(() {
@@ -62,15 +62,15 @@ class _ShoppingListState extends State<ShoppingList> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('购物清单'),
-        leading: new IconButton(
-            icon: new Icon(Icons.menu), tooltip: '导航菜单', onPressed: null),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('购物清单'),
+        leading: const IconButton(
+            icon: Icon(Icons.menu), tooltip: '导航菜单', onPressed: null),
       ),
-      body: new ListView(
+      body: ListView(
         children: widget.products.map((Product product) {
-          return new ShoppingListItem(
+          return ShoppingListItem(
             //监听
             product: product,
             inCart: _shoppingCart.contains(product),

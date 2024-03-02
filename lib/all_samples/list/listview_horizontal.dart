@@ -7,12 +7,14 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: ListViewHorizontalDemo(),
+      home: const ListViewHorizontalDemo(),
     ),
   );
 }
 
 class ListViewHorizontalDemo extends StatelessWidget {
+  const ListViewHorizontalDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

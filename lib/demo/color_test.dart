@@ -8,12 +8,11 @@ void main() {
 void test() {
   // 方式1：使用16进制颜色值
   // #FFB5B5 粉红色 255 181 181
-  Color color = const Color(0xFFB5B5);
+  Color color = const Color(0x00ffb5b5);
   int red = color.red;
   int green = color.green;
   int blue = color.blue;
-  print("color: " +
-      "    red: " +
+  print("color: " "    red: " +
       red.toString() +
       "    green: " +
       green.toString() +
@@ -26,8 +25,7 @@ void test() {
   int red1 = color1.red;
   int green1 = color1.green;
   int blue1 = color1.blue;
-  print("color1: " +
-      "    alpha: " +
+  print("color1: " "    alpha: " +
       alpha1.toString() +
       "    red: " +
       red1.toString() +
@@ -42,8 +40,7 @@ void test() {
   int red2 = color2.red;
   int green2 = color2.green;
   int blue2 = color2.blue;
-  print("color2: " +
-      "    alpha: " +
+  print("color2: " "    alpha: " +
       alpha1.toString() +
       "    red: " +
       red2.toString() +
@@ -58,8 +55,7 @@ void test() {
   int green3 = color3.green;
   int blue3 = color3.blue;
   double opacity3 = color3.opacity;
-  print("color3: " +
-      "    red: " +
+  print("color3: " "    red: " +
       red3.toString() +
       "    green: " +
       green3.toString() +
@@ -78,8 +74,7 @@ void test() {
   int green4 = color4.green;
   int blue4 = color4.blue;
   double opacity4 = color4.opacity;
-  print("color4: " +
-      "    alpha: " +
+  print("color4: " "    alpha: " +
       alpha4.toString() +
       "    red: " +
       red4.toString() +
@@ -99,8 +94,7 @@ void test() {
   int green5 = color5.green;
   int blue5 = color5.blue;
   double opacity5 = color4.opacity;
-  print("color5: " +
-      "    alpha: " +
+  print("color5: " "    alpha: " +
       alpha5.toString() +
       "    red: " +
       red5.toString() +
@@ -134,8 +128,7 @@ void test() {
   int green7 = rgbaColor.green;
   int blue7 = rgbaColor.blue;
   int alpha7 = rgbaColor.alpha;
-  print("rgbaColor: " +
-      "    red: " +
+  print("rgbaColor: " "    red: " +
       red7.toString() +
       "    green: " +
       green7.toString() +

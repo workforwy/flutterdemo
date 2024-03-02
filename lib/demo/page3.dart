@@ -4,21 +4,23 @@ import 'package:fluttertoast/fluttertoast.dart';
 /// 本demo 来源于： https://blog.csdn.net/column/details/13593.html?&page=4
 /// 事件的操作，另外这里引入了toast库
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: 'MaterialApp',
-    theme: new ThemeData(
+    theme: ThemeData(
       primaryColor: Colors.red, //设置appbar主题
       primarySwatch: Colors.deepOrange, //设置全局主题
     ),
-    home: new MyGestureDetector(),
+    home: const MyGestureDetector(),
   ));
 }
 
 /// 手势操作
 class MyGestureDetector extends StatelessWidget {
+  const MyGestureDetector({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new GestureDetector(
+    return GestureDetector(
       onTap: () {
         print('MyButton被监听了！');
         Fluttertoast.showToast(
@@ -27,16 +29,16 @@ class MyGestureDetector extends StatelessWidget {
           gravity: ToastGravity.BOTTOM,
         );
       },
-      child: new Container(
+      child: Container(
         height: 36.0,
         padding: const EdgeInsets.all(8.0),
         margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        decoration: new BoxDecoration(
-          borderRadius: new BorderRadius.circular(5.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5.0),
           color: Colors.deepOrange,
         ),
-        child: new Center(
-          child: new Text('点击监听'),
+        child: const Center(
+          child: Text('点击监听'),
         ),
       ),
     );

@@ -4,15 +4,17 @@ import 'dart:async';
 import 'package:path_provider/path_provider.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(const MaterialApp(
     title: 'Flutter',
-    home: new ReadAndWriteDemo(),
+    home: ReadAndWriteDemo(),
   ));
 }
 
 class ReadAndWriteDemo extends StatefulWidget {
+  const ReadAndWriteDemo({Key? key}) : super(key: key);
+
   @override
-  _ReadAndWriteDemoState createState() => new _ReadAndWriteDemoState();
+  _ReadAndWriteDemoState createState() => _ReadAndWriteDemoState();
 }
 
 class _ReadAndWriteDemoState extends State<ReadAndWriteDemo> {
@@ -22,14 +24,14 @@ class _ReadAndWriteDemoState extends State<ReadAndWriteDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(title: new Text('读写文件操作')),
-        body: new Center(
-            child: new Text('点击按钮${_counter == 0 ? '' : '$_counter次'}！')),
-        floatingActionButton: new FloatingActionButton(
+    return Scaffold(
+        appBar: AppBar(title: const Text('读写文件操作')),
+        body: Center(
+            child: Text('点击按钮${_counter == 0 ? '' : '$_counter次'}！')),
+        floatingActionButton: FloatingActionButton(
           onPressed: _incrementCounter,
           tooltip: '增加',
-          child: new Icon(Icons.add),
+          child: const Icon(Icons.add),
         ));
   }
 
@@ -78,11 +80,11 @@ class _ReadAndWriteDemoState extends State<ReadAndWriteDemo> {
     // 获取本地文档目录
     String dir = (await getApplicationDocumentsDirectory()).path;
     // 返回本地文件目录
-    return new File('$dir/counter.txt');
+    return File('$dir/counter.txt');
   }
 
   // _incrementCounter函数，点击增加按钮时的回调
-  Future<Null> _incrementCounter() async {
+  Future<void> _incrementCounter() async {
     setState(() {
       // 存储点击数的变量自加1
       _counter++;

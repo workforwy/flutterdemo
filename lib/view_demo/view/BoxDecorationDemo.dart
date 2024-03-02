@@ -4,22 +4,24 @@ import 'package:flutter/material.dart';
 /// 这里主要是盒子模型的api用法
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'BoxDemo',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue, //设置全局主题
       ),
-      home: new BoxDemo(),
+      home: const BoxDemo(),
     ),
   );
 }
 
 class BoxDemo extends StatelessWidget {
+  const BoxDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('BoxDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('BoxDemo'),
       ),
       body: _buildBox2(),
     );
@@ -27,43 +29,43 @@ class BoxDemo extends StatelessWidget {
 
   //创建单个盒子，里面放一个text
   Widget _buildBox() {
-    return new Container(
+    return Container(
       //宽
       width: 320.0,
       //高
       height: 240.0,
       //背景颜色
 //      color: Colors.grey[300],
-      margin: new EdgeInsets.all(50.0),
-      padding: new EdgeInsets.all(80.0),
+      margin: const EdgeInsets.all(50.0),
+      padding: const EdgeInsets.all(80.0),
       alignment: Alignment.center,
-      constraints: new BoxConstraints.expand(width: 300.0, height: 200.0),
-      decoration: new BoxDecoration(
-        borderRadius: new BorderRadius.all(
+      constraints: const BoxConstraints.expand(width: 300.0, height: 200.0),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(
           //让矩形四个角都变成圆角
-          const Radius.circular(8.0),
+          Radius.circular(8.0),
         ),
         //垂直线性渐变
-        gradient: new LinearGradient(
-          begin: const Alignment(0.0, -1.0),
-          end: const Alignment(0.0, 0.6),
-          colors: <Color>[const Color(0xffef5350), const Color(0x00ef5350)],
+        gradient: LinearGradient(
+          begin: Alignment(0.0, -1.0),
+          end: Alignment(0.0, 0.6),
+          colors: <Color>[Color(0xffef5350), Color(0x00ef5350)],
         ),
         //阴影
         boxShadow: <BoxShadow>[
-          new BoxShadow(
-            color: const Color(0xcc000000),
-            offset: new Offset(0.0, 2.0),
+          BoxShadow(
+            color: Color(0xcc000000),
+            offset: Offset(0.0, 2.0),
             blurRadius: 4.0,
           ),
-          new BoxShadow(
-            color: const Color(0x80000000),
-            offset: new Offset(0.0, 6.0),
+          BoxShadow(
+            color: Color(0x80000000),
+            offset: Offset(0.0, 6.0),
             blurRadius: 20.0,
           ),
         ],
       ),
-      child: new Text(
+      child: Text(
         "单个盒子",
         style: _buildTextStyle(),
       ),
@@ -72,19 +74,19 @@ class BoxDemo extends StatelessWidget {
 
   // 旋转组件  在控件外层加一个Transform控件
   Widget _buildBox2() {
-    return new Container(
-      child: new Center(
-        child: new Transform(
-          child: new Container(
-            child: new Text(
+    return Container(
+      child: Center(
+        child: Transform(
+          child: Container(
+            child: Text(
               "旋转控件",
               style: _buildTextStyle(),
               textAlign: TextAlign.center,
             ),
-            decoration: new BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.red[400],
             ),
-            padding: new EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
           ),
           alignment: Alignment.center,
           transform: _buildLocation(),
@@ -99,18 +101,18 @@ class BoxDemo extends StatelessWidget {
   //盒子中间嵌套盒子
   Widget _buildBoxInBox() {
     // 外层盒子
-    return new Container(
-      child: new Center(
+    return Container(
+      child: Center(
         //内层盒子
-        child: new Container(
-          child: new Text(
+        child: Container(
+          child: Text(
             "盒子中嵌套盒子",
             style: _buildTextStyle(),
           ),
-          decoration: new BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.deepOrange,
           ),
-          padding: new EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           width: 240.0, //最大宽度是 240.0
         ),
       ),
@@ -122,18 +124,18 @@ class BoxDemo extends StatelessWidget {
 
   // 设置一个圆形
   Widget _buildRound() {
-    return new Container(
+    return Container(
       // red circle
-      child: new Text(
+      child: Text(
         "Lorem ipsum",
         style: _buildTextStyle(),
         textAlign: TextAlign.center,
       ),
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.red[400],
         shape: BoxShape.circle,
       ),
-      padding: new EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       width: 160.0,
       height: 160.0,
     );
@@ -141,14 +143,14 @@ class BoxDemo extends StatelessWidget {
 
   //富文本的显示
   Widget _buildRichText() {
-    return new RichText(
-      text: new TextSpan(
+    return RichText(
+      text: TextSpan(
         style: _buildTextStyle(),
-        children: <TextSpan>[
-          new TextSpan(text: "Lorem "),
-          new TextSpan(
+        children: const <TextSpan>[
+          TextSpan(text: "Lorem "),
+          TextSpan(
             text: "ipsum",
-            style: new TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.w300,
               fontStyle: FontStyle.italic,
               fontSize: 48.0,
@@ -161,7 +163,7 @@ class BoxDemo extends StatelessWidget {
 
   //文本样式
   TextStyle _buildTextStyle() {
-    return new TextStyle(
+    return const TextStyle(
       //文本大小
       fontSize: 24.0,
       //字体粗细

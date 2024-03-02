@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 /// 交互
 void main() {
-  runApp(new MaterialApp(
+  runApp(const MaterialApp(
     title: '交互',
-    home: new Counter(),
+    home: Counter(),
   ));
 }
 
 class Counter extends StatefulWidget {
+  const Counter({Key? key}) : super(key: key);
+
   @override
-  _CounterState createState() => new _CounterState();
+  _CounterState createState() => _CounterState();
 }
 
 class _CounterState extends State<Counter> {
@@ -24,17 +26,17 @@ class _CounterState extends State<Counter> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('交互'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('交互'),
       ),
-      body: new Center(
-        child: new Text('按钮点击 $_count 次}'),
+      body: Center(
+        child: Text('按钮点击 $_count 次}'),
       ),
-      floatingActionButton: new FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         onPressed: _increment,
         tooltip: '增加',
-        child: new Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

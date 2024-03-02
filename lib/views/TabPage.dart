@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widget/HomeDrawer.dart';
 import '../widget/TabBarWidget.dart';
@@ -26,11 +25,11 @@ class TabPage extends StatelessWidget {
     return WillPopScope(
       onWillPop: () {},
       child: TabBarWidget(
-        drawer: HomeDrawer(),
+        drawer: const HomeDrawer(),
         title: const Text("tab"),
         type: TabBarWidget.BOTTOM_TAB,
         tabItems: tabs,
-        tabViews: [
+        tabViews: const [
           HomePage(),
           MainPage(),
           MyPage(),

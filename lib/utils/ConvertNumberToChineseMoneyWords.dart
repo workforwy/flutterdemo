@@ -17,7 +17,7 @@ void main() {
 
   String number = "45.12";
   ConvertNumberToChineseMoneyWords numbers =
-      new ConvertNumberToChineseMoneyWords();
+      ConvertNumberToChineseMoneyWords();
   print("转换前数字： " + number + " ，转换后的中文大写： " + numbers.toChinese(number) + "\n");
   number = "97953164651665.123";
   print("转换前数字： " + number + " ，转换后的中文大写： " + numbers.toChinese(number) + "\n");
@@ -107,7 +107,7 @@ class ConvertNumberToChineseMoneyWords {
   static List<int> toIntArray(String number) {
     List<int> array = [];
     if (array.length > number.length) {
-      throw new Exception("数组越界异常");
+      throw Exception("数组越界异常");
     } else {
       for (int i = 0; i < number.length; i++) {
         array.insert(i, int.parse(number.substring(i, i + 1)));
@@ -134,15 +134,15 @@ class ConvertNumberToChineseMoneyWords {
 
   // 将整数部分转为大写的金额
   String getChineseInteger(var integers, bool isWan) {
-    StringBuffer chineseInteger = new StringBuffer("");
+    StringBuffer chineseInteger = StringBuffer("");
     int length = integers.length;
     for (int i = 0; i < length; i++) {
       String key = "";
       if (integers[i] == 0) {
         // 万（亿）
-        if ((length - i) == 13)
+        if ((length - i) == 13) {
           key = IUNIT[4];
-        else if ((length - i) == 9) {
+        } else if ((length - i) == 9) {
           // 亿
           key = IUNIT[8];
         } else if ((length - i) == 5 && isWan) {
@@ -165,7 +165,7 @@ class ConvertNumberToChineseMoneyWords {
 
   // 将小数部分转为大写的金额
   String getChineseDecimal(var decimals) {
-    StringBuffer chineseDecimal = new StringBuffer("");
+    StringBuffer chineseDecimal = StringBuffer("");
     for (int i = 0; i < decimals.length; i++) {
       if (i == 3) {
         break;

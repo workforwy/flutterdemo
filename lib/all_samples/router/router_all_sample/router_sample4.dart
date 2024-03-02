@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // 发送路由，并接收从其他页面返回数据
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       title: 'Flutter发送路由并返回数据Demo',
       home: HomePage(),
     ),
@@ -12,21 +12,25 @@ void main() {
 
 // 页面A
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Flutter发送路由并返回数据Demo',
-          style: new TextStyle(fontSize: 15),
+          style: TextStyle(fontSize: 15),
         ),
       ),
-      body: new MyHomePage(),
+      body: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
@@ -34,7 +38,7 @@ class MyHomePage extends StatelessWidget {
       onPressed: () {
         _navigateAndDisplaySelection(context);
       },
-      child: Text('跳转到下一个页面'),
+      child: const Text('跳转到下一个页面'),
     );
   }
 
@@ -44,7 +48,7 @@ class MyHomePage extends StatelessWidget {
     final result = await Navigator.push(
       context,
       // 通过路由把数据发给另一个页面
-      MaterialPageRoute(builder: (context) => MyApp()),
+      MaterialPageRoute(builder: (context) => const MyApp()),
     );
 
     // 把收到的数据用SnackBar显示出来
@@ -54,20 +58,22 @@ class MyHomePage extends StatelessWidget {
 
 // 页面B
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "页面2",
-          style: new TextStyle(fontSize: 15),
+          style: TextStyle(fontSize: 15),
         ),
       ),
-      body: new RaisedButton(
+      body: RaisedButton(
         onPressed: () {
           Navigator.pop(context, '这是页面B给页面A发的数据');
         },
-        child: Text('点击返回到页面A'),
+        child: const Text('点击返回到页面A'),
       ),
     );
   }

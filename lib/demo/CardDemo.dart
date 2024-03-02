@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   //应用程序的唯一键值，Scaffold的状态
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TabController _controller;
 
   //局部变量，选择页面
@@ -37,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   void initState() {
     super.initState();
-    _controller = new TabController(vsync: this, length: _allPages.length);
+    _controller = TabController(vsync: this, length: _allPages.length);
     //addListener：每次动画的值更改时调用侦听器
     _controller.addListener(_handleTabSelection);
     _selectedPage = _allPages[0];
@@ -58,28 +60,28 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
         key: _scaffoldKey,
-        appBar: new AppBar(
-            title: new Text(widget.title),
+        appBar: AppBar(
+            title: Text(widget.title),
             //bottom:显示在应用栏底部的控件
-            bottom: new TabBar(
+            bottom: TabBar(
                 controller: _controller,
                 tabs: _allPages.map((_Page page) {
-                  return new Tab(
+                  return Tab(
                     text: page.label,
                   );
                 }).toList())),
         floatingActionButton: !_selectedPage.fabDefined
             ? null
-            : new FloatingActionButton(
+            : FloatingActionButton(
                 key: _selectedPage.fabKey,
                 tooltip: '显示说明',
                 backgroundColor: _selectedPage.fabColor,
                 child: _selectedPage.fabIcon,
                 onPressed: _showExplanatoryText,
               ),
-        body: new TabBarView(
+        body: TabBarView(
           controller: _controller,
           children: _allPages.map(buildTabView).toList(),
         ));
@@ -91,37 +93,35 @@ class _MyHomePageState extends State<MyHomePage>
     currentState：当前树中具有此键的控件的状态
     showBottomSheet：显示持久的质感设计底部板块
      */
-    if (_scaffoldKey.currentState.showBottomSheet != null) {
-      _scaffoldKey.currentState.showBottomSheet((BuildContext context) {
-        return new Container(
-            decoration: new BoxDecoration(
-              //容器顶部的边界颜色为当前主题颜色
-                border: new Border(
-                    top: new BorderSide(color: Theme.of(context).dividerColor))),
-            child: new Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: new Text(
-                  _selectedPage.fabDefined == true ? _explanatoryText : "",
-                  style: new TextStyle(color: _selectedPage.labelColor),
-                )));
-      });
+    _scaffoldKey.currentState.showBottomSheet((BuildContext context) {
+      return Container(
+          decoration: BoxDecoration(
+            //容器顶部的边界颜色为当前主题颜色
+              border: Border(
+                  top: BorderSide(color: Theme.of(context).dividerColor))),
+          child: Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Text(
+                _selectedPage.fabDefined == true ? _explanatoryText : "",
+                style: TextStyle(color: _selectedPage.labelColor),
+              )));
+    });
     }
-  }
 
   Widget buildTabView(_Page page) {
     //Builder：将其构建委托给回调的控件
-    return new Builder(
+    return Builder(
       //builder：调用获取控件
       builder: (BuildContext context) {
-        return new Container(
-          key: new ValueKey<String>(page.label),
+        return Container(
+          key: ValueKey<String>(page.label),
           padding: const EdgeInsets.fromLTRB(48.0, 48.0, 48.0, 96.0),
           //创建质感设计卡片
-          child: new Card(
-            child: new Center(
-              child: new Text(
+          child: Card(
+            child: Center(
+              child: Text(
                 page.label,
-                style: new TextStyle(
+                style: TextStyle(
                   color: page.labelColor,
                   fontSize: 32.0,
                 ),
@@ -161,20 +161,20 @@ class _Page {
 
   Color get labelColor => colors != null ? colors[300] : Colors.grey[300];
 
-  bool get fabDefined => colors != null && icon != null;
+  bool get fabDefined => icon != null;
 
   Color get fabColor => colors[400];
 
-  Icon get fabIcon => new Icon(icon);
+  Icon get fabIcon => Icon(icon);
 
-  Key get fabKey => new ValueKey<Color>(fabColor);
+  Key get fabKey => ValueKey<Color>(fabColor);
 }
 
 //所有页面类的列表
 final List<_Page> _allPages = <_Page>[
-  new _Page(label: '蓝色', colors: Colors.indigo, icon: Icons.add),
-  new _Page(label: '绿色', colors: Colors.green, icon: Icons.create),
-  new _Page(label: '空白'),
-  new _Page(label: '蓝绿色', colors: Colors.teal, icon: Icons.add),
-  new _Page(label: '红色', colors: Colors.red, icon: Icons.create),
+  _Page(label: '蓝色', colors: Colors.indigo, icon: Icons.add),
+  _Page(label: '绿色', colors: Colors.green, icon: Icons.create),
+  _Page(label: '空白'),
+  _Page(label: '蓝绿色', colors: Colors.teal, icon: Icons.add),
+  _Page(label: '红色', colors: Colors.red, icon: Icons.create),
 ];

@@ -7,7 +7,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ComLogo(),
+      home: const ComLogo(),
       // 直接使用自定义Logo 使用这个
       // home: MyHomePage(),
     ),
@@ -15,8 +15,10 @@ void main() {
 }
 
 class ComLogo extends StatefulWidget {
+  const ComLogo({Key? key}) : super(key: key);
+
   @override
-  MyAppState createState() => new MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
 class MyAppState extends State<ComLogo> {
@@ -35,7 +37,7 @@ class MyAppState extends State<ComLogo> {
   changeWidget() {
     setState(() {
       if (isChange == true) {
-        showWidgetContents = new Contents().pornhub;
+        showWidgetContents = Contents().pornhub;
         texts = '切换至 YouTube Logo';
         isChange = !isChange;
       } else {
@@ -50,12 +52,12 @@ class MyAppState extends State<ComLogo> {
 
   @override
   Widget build(BuildContext context) {
-    return new MyInheritedWidget(
+    return MyInheritedWidget(
       texts: texts,
       onTap: changeWidget,
       showWidgetContents: showWidgetContents,
       isChange: isChange,
-      child: new MyHomePage(),
+      child: const MyHomePage(),
     );
   }
 }
@@ -78,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[400],
       appBar: AppBar(
-        title: Text('Flutter自定义及自由切换Logo'),
+        title: const Text('Flutter自定义及自由切换Logo'),
       ),
       body: ListView(
         children: <Widget>[
@@ -173,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {
               MyInheritedWidget.of(context).onTap();
             },
-            child: Text('${MyInheritedWidget.of(context).texts.toString()}'),
+            child: Text(MyInheritedWidget.of(context).texts.toString()),
           ),
         ],
       ),
@@ -234,14 +236,14 @@ class Contents extends StatefulWidget {
         leftText: 'Porn',
         leftTextSize: 60,
         leftTextColor: Colors.white,
-        rightBgColor: Color.fromARGB(255, 254, 155, 0),
+        rightBgColor: const Color.fromARGB(255, 254, 155, 0),
         rightBgBorderRadius: 5,
         rightText: 'Hub',
         rightTextColor: Colors.black,
       );
 
   Contents get youtube => Contents(
-        bgColor: Color.fromARGB(255, 238, 28, 27),
+        bgColor: const Color.fromARGB(255, 238, 28, 27),
         bgWidth: 300,
         bgHeight: 300,
         leftText: 'You',
@@ -250,7 +252,7 @@ class Contents extends StatefulWidget {
         rightBgColor: Colors.white,
         rightBgBorderRadius: 10,
         rightText: 'Tube',
-        rightTextColor: Color.fromARGB(255, 238, 28, 27),
+        rightTextColor: const Color.fromARGB(255, 238, 28, 27),
       );
 
   Contents get suning => Contents(
@@ -282,7 +284,7 @@ class _ContentsState extends State<Contents> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(30),
+      margin: const EdgeInsets.all(30),
       width: widget.bgWidth,
       height: widget.bgHeight,
       color: widget.bgColor,
@@ -291,7 +293,7 @@ class _ContentsState extends State<Contents> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(left: 0, top: 0, right: 5, bottom: 0),
+            padding: const EdgeInsets.only(left: 0, top: 0, right: 5, bottom: 0),
             child: Text(
               widget.leftText,
               style: TextStyle(
@@ -310,7 +312,7 @@ class _ContentsState extends State<Contents> {
               ),
               borderRadius: BorderRadius.circular(widget.rightBgBorderRadius),
             ),
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Text(
               widget.rightText,
               style: TextStyle(

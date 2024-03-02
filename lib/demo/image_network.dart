@@ -3,22 +3,23 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:flutter_logger/flutter_logger.dart';
 import 'package:http/http.dart' as http;
 
-void main() => runApp(new ImageAndNetWorkDemo());
+void main() => runApp(const ImageAndNetWorkDemo());
 
 class ImageAndNetWorkDemo extends StatelessWidget {
+  const ImageAndNetWorkDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'ImageAndNetWorkDemo',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('ImageAndNetWorkDemo'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('ImageAndNetWorkDemo'),
         ),
         body: useNetWorkImage(),
 
@@ -33,7 +34,7 @@ class ImageAndNetWorkDemo extends StatelessWidget {
 Center useNetWorkImage() {
   return Center(
     /// Dart2的写法，可以省去new关键字
-    child: new Image.network(
+    child: Image.network(
       'http://pic.baike.soso.com/p/20130828/20130828161137-1346445960.jpg',
       scale: 2.0,
     ),
@@ -42,11 +43,11 @@ Center useNetWorkImage() {
 
 /// 加载本地图片
 Center useAssetImage() {
-  return new Center(
-    child: new Container(
-      decoration: new BoxDecoration(
-        image: new DecorationImage(
-          image: new AssetImage('images/ic_launcher.png'),
+  return Center(
+    child: Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('images/ic_launcher.png'),
         ),
       ),
     ),
@@ -63,11 +64,11 @@ void _networkLoading() {
     // 响应的主体作为字符串返回
     String netdata = response.body;
     // JsonDecoder类解析JSON字符串并构建相应的对象
-    JsonDecoder decoder = new JsonDecoder();
+    JsonDecoder decoder = const JsonDecoder();
     // 将给定的JSON字符串输入转换为其对应的对象
     Map<String, dynamic> json = decoder.convert(netdata);
     // 输出给定的JSON数据
-    new Log('networkLoading').d(json.toString());
+    Log('networkLoading').d(json.toString());
   });
 }
 
@@ -78,8 +79,8 @@ Future<String> loadAsset() async {
 
 void _loadJson() {
   loadAsset().then((value) {
-    JsonDecoder decoder = new JsonDecoder();
+    JsonDecoder decoder = const JsonDecoder();
     Map<String, dynamic> json = decoder.convert(value);
-    new Log('_loadJson').d(json.toString());
+    Log('_loadJson').d(json.toString());
   });
 }

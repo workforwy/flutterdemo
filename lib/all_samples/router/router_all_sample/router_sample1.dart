@@ -4,30 +4,32 @@ import 'package:flutter/material.dart';
 // 使用Navigator.push实现发送路由，Navigator.pop返回上一个页面。
 void main() {
   runApp(
-    new MaterialApp(
+    MaterialApp(
       title: 'Flutter 路由Demo',
-      theme: new ThemeData(primarySwatch: Colors.blue),
-      home: new MyHomePage(),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const MyHomePage(),
     ),
   );
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(title: new Text('Flutter 路由Demo')),
-      body: new RaisedButton(
+    return Scaffold(
+      appBar: AppBar(title: const Text('Flutter 路由Demo')),
+      body: RaisedButton(
         color: Colors.teal,
         onPressed: () {
           Navigator.push(
             context,
-            new MaterialPageRoute(
-              builder: (context) => new MyApp(),
+            MaterialPageRoute(
+              builder: (context) => const MyApp(),
             ),
           );
         },
-        child: new Text(
+        child: const Text(
           '跳转到下一个页面',
         ),
       ),
@@ -36,17 +38,19 @@ class MyHomePage extends StatelessWidget {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Flutter 路由Demo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Flutter 路由Demo'),
       ),
-      body: new RaisedButton(
+      body: RaisedButton(
         onPressed: () {
           Navigator.pop(context);
         },
-        child: new Text('返回上一个页面'),
+        child: const Text('返回上一个页面'),
       ),
     );
   }

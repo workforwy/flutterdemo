@@ -5,27 +5,29 @@ import 'package:flutter/material.dart';
 /// flutter_simple_permissions这个库的使用
 /// 暂且不做测试这个功能  目前有bug 以后再看。。
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: 'PermissionsDemo',
-    theme: new ThemeData(
+    theme: ThemeData(
       primarySwatch: Colors.blue, //设置全局主题
     ),
-    home: new PermissionsDemo2(),
+    home: const PermissionsDemo2(),
   ));
 }
 
 class PermissionsDemo2 extends StatefulWidget {
+  const PermissionsDemo2({Key? key}) : super(key: key);
+
   @override
-  _PermissionsDemo2State createState() => new _PermissionsDemo2State();
+  _PermissionsDemo2State createState() => _PermissionsDemo2State();
 }
 
 /// 待完善
 class _PermissionsDemo2State extends State<PermissionsDemo2> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('PermissionsDemo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('PermissionsDemo'),
       ),
     );
   }

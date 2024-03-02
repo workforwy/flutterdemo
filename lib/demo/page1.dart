@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(const MaterialApp(
     title: 'flutter learning',
-    home: new MyHome(),
+    home: MyHome(),
   ));
 }
 
 class MyHome extends StatelessWidget {
+  const MyHome({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Material(
-      child: new Column(
+    return Material(
+      child: Column(
         children: <Widget>[
-          new MyAppBar(
-            title: new Text('AppBar标题  flutter learning',
-                style: Theme.of(context).primaryTextTheme.bodyText1),
+          MyAppBar(
+            title: Text('AppBar标题  flutter learning',
+                style: Theme.of(context).primaryTextTheme.bodyLarge),
           ),
-          new Expanded(
-              child: new Center(
-            child: new Text('你好 世界！'),
+          const Expanded(
+              child: Center(
+            child: Text('你好 世界！'),
           )),
         ],
       ),
@@ -28,23 +30,23 @@ class MyHome extends StatelessWidget {
 }
 
 class MyAppBar extends StatelessWidget {
-  MyAppBar({this.title});
+  const MyAppBar({Key? key, this.title}) : super(key: key);
 
   final Widget title;
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
       height: 56.0,
 //      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      decoration: new BoxDecoration(color: Colors.blue),
-      child: new Row(
+      decoration: const BoxDecoration(color: Colors.blue),
+      child: Row(
         children: <Widget>[
-          new IconButton(
-              icon: new Icon(Icons.menu), tooltip: '导航菜单', onPressed: null),
-          new Expanded(child: title),
-          new IconButton(
-            icon: new Icon(Icons.search),
+          const IconButton(
+              icon: Icon(Icons.menu), tooltip: '导航菜单', onPressed: null),
+          Expanded(child: title),
+          const IconButton(
+            icon: Icon(Icons.search),
             tooltip: '搜索',
             onPressed: null,
           )
